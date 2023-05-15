@@ -1,0 +1,13 @@
+# LENGUAJES DE MARCAS:
+- [ ] Diseñar el logo del taller que será su nueva imagen de marca. 
+- [ ] Asociarle una frase o eslogan. 
+- [ ] Crear un sitio web con dos páginas
+- [ ] Home: Incluye textos, enlaces, imágenes y todo aquello que la haga atractivaalos visitantes y muestre los servicios que el taller ofrece. Tendrá un enlacealapágina donde se mostrará el Formulario de contacto
+- [ ] Formulario de contacto: constará de:
+    - Nombre
+    - Apellidos
+    - Correo electrónico
+    - Teléfono
+    - Matrícula del vehículo
+    - Tipo del vehículo
+    - Botón para enviar los datos a un correo electrónico.
