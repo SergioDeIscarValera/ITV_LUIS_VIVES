@@ -5,4 +5,4 @@
 - [ ] Diagrama de secuencia de alta de inspección y de actualización de trabajador y deimprimir informe. 
 - [ ] Testing unitario de repositorios, servicios y controladores. 
 - [ ] Arquitectura que respete los principios SOLID. 
-- [ ] Mecanismos automáticos para 
+- [ ] Mecanismos automáticos para para proveer dependencias.
