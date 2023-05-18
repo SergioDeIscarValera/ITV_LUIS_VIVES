@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home.css">
+    <title>Concesionario</title>
+    <script>
+        function cambiarModo() {
+            var body = document.getElementById("body");
+            var nav = document.getElementById("barraNavegacion");
+            var logoClaro = document.getElementById("logoClaro");
+            var logoOscuro = document.getElementById("logoOscuro")
+            var botonLuna = document.getElementById("botonLuna");
+            var botonSol = document.getElementById("botonSol");
+
+            if (botonLuna.style.display === "block") {
+                botonLuna.style.display = "none";
+                botonSol.style.display = "block";
+                body.className = "modo-nocturno";
+                nav.className = "modo-nocturno";
+                logoClaro.style.display = "none";
+                logoOscuro.style.display = "block";
+            } else {
+                botonLuna.style.display = "block";
+                botonSol.style.display = "none";
+                body.className = "modo-normal";
+                nav.className = "modo-normal";
+                logoClaro.style.display = "block";
+                logoOscuro.style.display = "none";
+            };
+        };
+    </script>
+</head>
+<body id="body" class="modo-normal">
+    <header>
+        <nav id="barraNavegacion" class="modo-normal">
+            <div>
+                <img id="logoIzquierda" src="img/logoClaro.png">
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="">Info</a></li>
+                <li><a href="pagina-cita.html">Cita</a></li>
+            </ul>
+            <div>
+                <button id="botonLuna" class="botonLuna" onclick="cambiarModo()">
+                    <img src="img/luna.png">
+                </button>
+                <button id="botonSol" class="botonSol" onclick="cambiarModo()">
+                    <img src="img/sol.png">
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <div>
+            <img id="logoClaro" class="logoClaro" src="img/logoClaro.png">
+            <img id="logoOscuro" class="logoOscuro" src="img/logoOscuro.png">
+        </div>
+        <div class="margen-textos">
+            <h1>¿Quienes somos?</h1>
+            <br>
+            ¡Bienvenidos a Arreglamos tu Coche S.A.!
+            Somos tu empresa de Inspección Técnica de Vehículos de confianza. Nos dedicamos a garantizar 
+            la seguridad y el buen funcionamiento de tu vehículo, brindándote un servicio completo, profesional y rápido. 
+            Nuestro compromiso es asegurar que tu coche cumpla con todos los requisitos legales y esté en condiciones óptimas para la circulación.
+            <br>
+            <img class="imgVehiculos" src="img/vehiculos.png">
+            <h1>¿Por qué elegir Arreglamos tu Coche S.A.?</h1>
+            <br>
+            <h2>Experiencia y conocimientos</h2>
+            <br>
+            Contamos con un equipo de técnicos altamente capacitados y con amplia experiencia en nuestro sector. 
+            Conocemos a la perfección los requisitos y las normativas vigentes actuales, y estamos preparados para 
+            realizar inspecciones exhaustivas y precisas en cada parte de su vehículo.
+            <br>
+            <br>
+            <h2>Tecnología de vanguardia</h2>
+            <br>
+            En Arreglamos tu Coche S.A., invertimos en equipos y tecnología de última generación para garantizar la 
+            máxima precisión en nuestras inspecciones. Utilizamos herramientas avanzadas que nos permiten detectar 
+            cualquier irregularidad o avería en tu coche, asegurando así su correcto funcionamiento y tu 
+            seguridad en la carretera.
+            <br>
+            <br>
+            <h2>Servicio personalizado</h2>
+            <br>
+            Entendemos que cada vehículo es único y tiene sus propias necesidades. Por eso, en Arreglamos tu Coche S.A., 
+            nos adaptamos a tus requerimientos específicos, ofreciéndote un servicio personalizado y a medida. 
+            Nuestros expertos evaluarán tu vehículo de manera individualizada, brindándote recomendaciones y soluciones 
+            adecuadas a su estado y características.
+            <br>
+            <br>
+            <h2>Eficiencia y rapidez</h2>
+            <br>
+            Valoramos tu tiempo y nos esforzamos por ofrecerte un servicio eficiente y ágil. En Arreglamos tu Coche S.A., 
+            podrás reservar tu cita de forma rápida y sencilla, evitando largas esperas innecesarias. Además, nos 
+            comprometemos a realizar las inspecciones en tiempo récord, sin descuidar la calidad y precisión en cada paso 
+            del proceso.
+            <br>
+            <br>
+            <h2>Transparencia y confianza</h2>
+            <br>
+            En Arreglamos tu Coche S.A., nos enorgullece nuestra honestidad y transparencia. Te ofrecemos un 
+            servicio completamente confiable y te mantenemos informado en todo momento sobre el estado de tu vehículo. 
+            Nuestro objetivo es brindarte la tranquilidad de saber que estás dejando tu coche en manos de profesionales 
+            comprometidos con tu seguridad y bienestar.
+            <img class="imgVehiculos" src="img/vehiculos2.png">
+            <h1>Conclusión</h1>
+            <br>
+            Confía en Arreglamos tu Coche S.A. para garantizar la seguridad y el correcto 
+            funcionamiento de tu vehículo. Reserva tu cita hoy mismo y experimenta nuestro servicio de calidad. 
+            Estamos aquí para cuidar de tu coche como si fuera nuestro propio vehículo.
+            <br>
+        </div>
+        <div class="floating-buttons">
+            <a class="floating-button">
+                <img src="img/instagram.png">
+            </a>
+            <a class="floating-button">
+                <img src="img/twitter.png">
+            </a>
+            <a class="floating-button">
+                <img src="img/whatsapp.png">
+            </a>
+            <a class="floating-button">
+                <img src="img/facebook.png">
+            </a>
+            <a class="floating-button">
+                <img src="img/tiktok.png">
+            </a>
+        </div>
+    </div>
+    <!-- Footer -->
+</body>
+</html>

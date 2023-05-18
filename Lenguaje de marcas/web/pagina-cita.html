@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home.css">
+    <title>Cita</title>
+    <script>
+        function cambiarModo() {
+            var body = document.getElementById("body");
+            var nav = document.getElementById("barraNavegacion");
+            var logoClaro = document.getElementById("logoClaro");
+            var logoOscuro = document.getElementById("logoOscuro")
+            var botonLuna = document.getElementById("botonLuna");
+            var botonSol = document.getElementById("botonSol");
+
+            if (botonLuna.style.display === "block") {
+                botonLuna.style.display = "none";
+                botonSol.style.display = "block";
+                body.className = "modo-nocturno";
+                nav.className = "modo-nocturno";
+                logoClaro.style.display = "none";
+                logoOscuro.style.display = "block";
+            } else {
+                botonLuna.style.display = "block";
+                botonSol.style.display = "none";
+                body.className = "modo-normal";
+                nav.className = "modo-normal";
+                logoClaro.style.display = "block";
+                logoOscuro.style.display = "none";
+            };
+        };
+    </script>
+</head>
+<body id="body" class="modo-normal">
+    <header>
+        <nav id="barraNavegacion" class="modo-normal">
+            <div>
+                <img id="logoIzquierda" src="img/logoClaro.png">
+            </div>
+            <ul>
+                <li><a href="pagina_principal.html">Home</a></li>
+                <li><a href="">Info</a></li>
+                <li><a href="#">Cita</a></li>
+            </ul>
+            <div>
+                <button id="botonLuna" class="botonLuna" onclick="cambiarModo()">
+                    <img src="img/luna.png">
+                </button>
+                <button id="botonSol" class="botonSol" onclick="cambiarModo()">
+                    <img src="img/sol.png">
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <div class="floating-buttons">
+            <a class="floating-button">
+                <img src="img/instagram.png">
+            </a>
+            <a class="floating-button">
+                <img src="img/twitter.png">
+            </a>
+            <a class="floating-button">
+                <img src="img/whatsapp.png">
+            </a>
+            <a class="floating-button">
+                <img src="img/facebook.png">
+            </a>
+            <a class="floating-button">
+                <img src="img/tiktok.png">
+            </a>
+        </div>
+    </div>
+    <!-- Footer -->
+</body>
+</html>

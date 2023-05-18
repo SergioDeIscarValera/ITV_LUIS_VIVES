@@ -1,0 +1,200 @@
+.floating-buttons {
+    position: fixed;
+    bottom: 400px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.floating-button {
+    display: block;
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    background:rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.floating-button img {
+    width: 100%;
+    height: auto;
+    background:rgba(0, 0, 0, 0);
+}
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+
+:root {
+    --color-fondo: #caeee4;
+    --color-principal: #2f9173;
+    --color-fondo-nocturno: #2a433c;
+    --color-principal-nocturno: #78C2AD;
+}
+
+
+
+body.modo-normal {
+    background-color: var(--color-fondo);
+}
+  
+body.modo-nocturno {
+    background-color: var(--color-fondo-nocturno);
+    color:#ffffff
+}
+
+
+
+.modo-normal h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--color-principal);
+    margin-top: 50px;
+    text-align: center;
+}
+
+.modo-nocturno h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--color-principal-nocturno);
+    margin-top: 50px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--color-principal);
+    text-align: left;
+    margin-left: 3%;
+}
+
+.modo-nocturno h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--color-principal-nocturno);
+    text-align: left;
+    margin-left: 3%;
+}
+
+
+.modo-normal nav {
+    background-color: var(--color-principal);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.modo-nocturno nav {
+    background-color: var(--color-principal-nocturno);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+
+
+#logoIzquierda {
+    margin-left: 20%;
+    margin-top: 5%;
+    width: 4rem;
+    height: auto;
+}
+
+
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav img {
+    width: 2rem;
+    height: auto;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #6cc3d5;
+    color: #ffffff;
+}
+
+
+
+.botonLuna {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 10%;
+    margin-left: -50%;
+    display: block;
+    cursor: pointer;
+}
+  
+.botonLuna img {
+    width: 2rem;
+    height: auto;
+}
+
+.botonSol {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 10%;
+    margin-left: -50%;
+    display: none;
+    cursor: pointer;
+}
+  
+.botonSol img {
+    width: 2rem;
+    height: auto;
+}
+
+.logoClaro {
+    display: block;
+    margin: auto;
+    margin-top: 4%;
+}
+
+.logoOscuro {
+    display: none;
+    margin: auto;
+    margin-top: 4%;
+}
+
+.margen-textos {
+    margin-left: 30px;
+    margin-right: 200px;
+    margin-bottom: 100px;
+}
+
+.imgVehiculos {
+    width: 30rem;
+    height: auto;
+    display: block;
+    margin: auto;
+    margin-top: 4%;
+}
