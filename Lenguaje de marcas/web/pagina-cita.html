@@ -10,30 +10,27 @@
         function cambiarModo() {
             var body = document.getElementById("body");
             var nav = document.getElementById("barraNavegacion");
-            var logoClaro = document.getElementById("logoClaro");
-            var logoOscuro = document.getElementById("logoOscuro")
             var botonLuna = document.getElementById("botonLuna");
             var botonSol = document.getElementById("botonSol");
+            var container = document.getElementById("containerFormulario")
 
             if (botonLuna.style.display === "block") {
                 botonLuna.style.display = "none";
                 botonSol.style.display = "block";
-                body.className = "modo-nocturno";
+                body.className = "pagina_cita modo-nocturno";
                 nav.className = "modo-nocturno";
-                logoClaro.style.display = "none";
-                logoOscuro.style.display = "block";
+                container.className = "container_modo-nocturno"
             } else {
                 botonLuna.style.display = "block";
                 botonSol.style.display = "none";
-                body.className = "modo-normal";
+                body.className = "pagina_cita modo-normal";
                 nav.className = "modo-normal";
-                logoClaro.style.display = "block";
-                logoOscuro.style.display = "none";
+                container.className = "container_modo-normal"
             };
         };
     </script>
 </head>
-<body id="body" class="modo-normal">
+<body id="body" class="pagina_cita modo-normal">
     <header>
         <nav id="barraNavegacion" class="modo-normal">
             <div>
@@ -55,6 +52,46 @@
         </nav>
     </header>
     <div>
+        <div id="containerFormulario" class="container_modo-normal">
+            <form>
+                <h2>Cita<img src="/img/programador.png" class="imagen_usuario"></h2>
+                <br>
+                <h2>Formulario</h2>
+                <br>
+                <div class="divLabel">
+                    <label>Nombre</label>
+                    <input class="casillas_formulario" type="text" id="nombre" name="nombre">
+                </div>
+                <div class="divLabel">
+                    <label>Apellidos</label>
+                    <input class="casillas_formulario" type="text" id="apellidos" name="apellidos">
+                </div>
+                <div class="divLabel">
+                    <label>Correo electrónico</label>
+                    <input class="casillas_formulario" type="email" id="correo" name="correo">
+                </div>
+                <div class="divLabel">
+                    <label>Teléfono de contacto</label>
+                    <input class="casillas_formulario" type="tel" id="telefono" name="telefono">
+                </div>
+                <div class="divLabel">
+                    <label>Matrícula del vehículo</label>
+                    <input class="casillas_formulario" type="text" id="matricula" name="matricula">
+                </div>
+                <div class="divLabel">
+                    <label>Tipo de vehículo</label>
+                    <input class="casillas_formulario" type="text" id="tipoVehiculo" name="tipoVehiculo">
+                </div>
+                <div class="divLabel">
+                    <label>Fecha de matriculación</label>
+                    <input class="casillas_formulario" type="date" id="fechaMatriculacion" name="fechaMatriculacion">
+                </div>
+                <div>
+                    <img src="/img/codigo-de-barras.png" class="codigo_barras">
+                    <button id="enviar_button" class="enviar_button" onclick="">Enviar datos</button>
+                </div>
+            </form>
+        </div>
         <div class="floating-buttons">
             <a class="floating-button">
                 <img src="img/instagram.png">

@@ -40,12 +40,21 @@
 
 
 
-body.modo-normal {
-    background-color: var(--color-fondo);
+
+body.pagina_principal.modo-normal {
+    background-color:#caeee4;
+}
+
+body.pagina_cita.modo-normal {
+    background-image: linear-gradient(rgba(202, 238, 228, 0.5), rgba(202, 238, 228, 0.5)), url(/img/cita.png);
+}
+
+body.pagina_principal.modo-nocturno {
+    background-color: #2a433c;
 }
   
-body.modo-nocturno {
-    background-color: var(--color-fondo-nocturno);
+body.pagina_cita.modo-nocturno {
+    background-image: linear-gradient(rgba(42, 67, 60, 0.9), rgba(42, 67, 60, 0.9)), url(/img/cita.png);
     color:#ffffff
 }
 
@@ -197,4 +206,92 @@ nav a:hover {
     display: block;
     margin: auto;
     margin-top: 4%;
+}
+
+
+
+
+
+.container_modo-normal {
+    width: 600px;
+    height: 800px;
+    background-color: #f3969a;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    padding-left: 2%;
+    padding-top: 1%;
+    margin-bottom: 5%;
+}
+
+.container_modo-nocturno {
+    width: 600px;
+    height: 800px;
+    background-color: #ff5151;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    padding-left: 2%;
+    padding-top: 1%;   
+    margin-bottom: 5%; 
+}
+
+.modo-normal label {
+    padding-left: 3%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #08664b;
+    font-size: 22px;
+}
+
+.modo-nocturno label {
+    padding-left: 3%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:#78C2AD;
+    font-size: 20px;
+}
+
+.casillas_formulario {
+    float: right;
+    width: 300px;
+    height: 25px;
+    margin-right: 5%;
+    border: transparent;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.divLabel {
+    margin-top: 50px;
+}
+
+.enviar_button {
+    background-color: #ffce67;
+    border: transparent;
+    border-radius: 10px;
+    float: right;
+    margin-right: 10%;
+    margin-top: 10%;
+    height: 40px;
+    width: 100px;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.codigo_barras {
+    height: 150px;
+    width: auto;
+    margin-left: 100px;
+    margin-top: 15px;
+    float: left;
+}
+
+.imagen_usuario {
+    height: 100px;
+    width: auto;
+    float: right;
+    margin-right: 50px;
 }
