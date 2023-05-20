@@ -22,7 +22,7 @@ class VehicleRepositoryDataBase: VehicleRepository, KoinComponent {
     override fun findAll(): Iterable<Vehicle> {
         logger.debug { "VehicleRepositoryDataBase ->\tfindAll" }
         val vehicles = mutableListOf<Vehicle>()
-        val sql = """SELECT * FROM tVehicles"""
+        val sql = """SELECT * FROM tVehiculo"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
@@ -37,7 +37,7 @@ class VehicleRepositoryDataBase: VehicleRepository, KoinComponent {
     override fun findById(id: String): Result<Vehicle, VehicleError> {
         logger.debug { "VehicleRepositoryDataBase ->\tfindById" }
         var vehicle:Vehicle? = null
-        val sql = """SELECT * FROM tVehicles WHERE cCarNumber = ?"""
+        val sql = """SELECT * FROM tVehiculo WHERE cMatricula = ?"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             stm.setString(1, id)
             val result = stm.executeQuery()
@@ -49,14 +49,14 @@ class VehicleRepositoryDataBase: VehicleRepository, KoinComponent {
     }
 
     private fun resultToVehicle(result: ResultSet) = Vehicle(
-        result.getString("cCarNumber"),
-        result.getString("cBrand"),
-        result.getString("cModel"),
-        TypeVehicle.valueOf(result.getString("cTypeVehicle")),
-        TypeMotor.valueOf(result.getString("cTypeMotor")),
-        result.getDate("dRegistrationDate").toLocalDate(),
-        result.getTimestamp("dDateITV").toLocalDateTime(),
-        result.getString("cDniOwner")
+        result.getString("cMatricula"),
+        result.getString("cMarca"),
+        result.getString("cModelo"),
+        TypeVehicle.valueOf(result.getString("cTipoVehiculo")),
+        TypeMotor.valueOf(result.getString("cTipoMotor")),
+        result.getDate("dFecha_Matriculacion").toLocalDate(),
+        result.getTimestamp("dFecha_UltimaRevision").toLocalDateTime(),
+        result.getString("cDniPropietario")
     )
 
     override fun existsById(id: String): Boolean {

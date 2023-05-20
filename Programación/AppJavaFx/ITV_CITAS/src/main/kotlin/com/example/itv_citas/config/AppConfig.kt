@@ -25,6 +25,10 @@ class AppConfig {
         readProperty("app.db.reset")?.toBoolean() ?: false
     }
 
+    val appDBInsert by lazy {
+        readProperty("app.db.insert")?.toBoolean() ?: false
+    }
+
     val appPathResources by lazy {
         localPath + File.separator + ((readProperty("app.path.resources") ?: "src-main-resources-").replace("-", File.separator))
     }
@@ -35,6 +39,10 @@ class AppConfig {
 
     val appDBResetPath by lazy {
         appPathResources + (readProperty("app.db.reset.path") ?: "reset.sql")
+    }
+
+    val appDBInsertPath by lazy {
+        appPathResources + (readProperty("app.db.insert.path") ?: "insert.sql")
     }
 
     init {

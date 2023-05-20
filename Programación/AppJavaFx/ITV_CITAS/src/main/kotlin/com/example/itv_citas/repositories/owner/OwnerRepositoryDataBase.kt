@@ -23,7 +23,7 @@ class OwnerRepositoryDataBase: OwnerRepository, KoinComponent {
     override fun findAll(): Iterable<Owner> {
         logger.debug { "OwnerRepositoryDataBase ->\tfindAll" }
         val owners = mutableListOf<Owner>()
-        val sql = """SELECT * FROM tOwners"""
+        val sql = """SELECT * FROM tPropietario"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
@@ -38,7 +38,7 @@ class OwnerRepositoryDataBase: OwnerRepository, KoinComponent {
     override fun findById(id: String): Result<Owner, OwnerError> {
         logger.debug { "OwnerRepositoryDataBase ->\tfindById" }
         var owner:Owner? = null
-        val sql = """SELECT * FROM tOwners WHERE cIdOwner = ?"""
+        val sql = """SELECT * FROM tPropietario WHERE cIdOwner = ?"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             stm.setString(1, id)
             val result = stm.executeQuery()
@@ -50,12 +50,12 @@ class OwnerRepositoryDataBase: OwnerRepository, KoinComponent {
     }
 
     private fun resultToOwner(result: ResultSet) = Owner(
-        result.getString("cIdOwner"),
-        result.getString("cName"),
-        result.getString("cLastName"),
-        result.getString("cEmail"),
-        result.getString("cPhone"),
-        vehicleRepository.findAll().filter { it.dniOwner == result.getString("cIdOwner") }.toList()
+        result.getString("cDNI"),
+        result.getString("cNombre"),
+        result.getString("cApellidos"),
+        result.getString("cCorreoElectronico"),
+        result.getString("cTelefono"),
+        vehicleRepository.findAll().filter { it.dniOwner == result.getString("cDNI") }.toList()
     )
 
     override fun existsById(id: String): Boolean {

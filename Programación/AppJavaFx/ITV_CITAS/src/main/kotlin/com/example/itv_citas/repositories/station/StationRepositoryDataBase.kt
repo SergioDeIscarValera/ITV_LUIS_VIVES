@@ -20,7 +20,7 @@ class StationRepositoryDataBase: StationRepository, KoinComponent {
     override fun findAll(): Iterable<Station> {
         logger.debug { "StationRepositoryDataBase ->\tfindAll" }
         val stations = mutableListOf<Station>()
-        val sql = """SELECT * FROM tStations"""
+        val sql = """SELECT * FROM tEstacion"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
@@ -35,7 +35,7 @@ class StationRepositoryDataBase: StationRepository, KoinComponent {
     override fun findById(id: Long): Result<Station, StationError> {
         logger.debug { "StationRepositoryDataBase ->\tfindById" }
         var station:Station? = null
-        val sql = """SELECT * FROM tStations WHERE cIdStation = ?"""
+        val sql = """SELECT * FROM tEstacion WHERE nId_Estacion = ?"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             stm.setLong(1, id)
             val result = stm.executeQuery()
@@ -48,11 +48,11 @@ class StationRepositoryDataBase: StationRepository, KoinComponent {
 
     private fun resultToStation(result: ResultSet): Station{
         return Station(
-            result.getLong("cIdStation"),
-            result.getString("cName"),
-            result.getString("cEmail"),
-            result.getString("cAddress"),
-            result.getString("cPhone")
+            result.getLong("nId_Estacion"),
+            result.getString("cNombre"),
+            result.getString("cCorreoElectronico"),
+            result.getString("cDireccion"),
+            result.getString("cTelefono")
         )
     }
 

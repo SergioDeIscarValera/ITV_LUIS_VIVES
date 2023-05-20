@@ -20,7 +20,7 @@ class EmployeeRepositoryDataBase: EmployeeRepository, KoinComponent{
     override fun findAll(): Iterable<Employee> {
         logger.debug { "EmployeeRepositoryDataBase ->\tfindAll" }
         val employees = mutableListOf<Employee>()
-        val sql = """SELECT * FROM tEmployees"""
+        val sql = """SELECT * FROM tTrabajadores"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
@@ -35,7 +35,7 @@ class EmployeeRepositoryDataBase: EmployeeRepository, KoinComponent{
     override fun findById(id: Long): Result<Employee, EmployeeError> {
         logger.debug { "EmployeeRepositoryDataBase ->\tfindById" }
         var employee:Employee? = null
-        val sql = """SELECT * FROM tEmployees WHERE nIdEmployee = ?"""
+        val sql = """SELECT * FROM tTrabajadores WHERE nId_Trabajador = ?"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             stm.setLong(1, id)
             val result = stm.executeQuery()
@@ -47,16 +47,16 @@ class EmployeeRepositoryDataBase: EmployeeRepository, KoinComponent{
     }
 
     private fun resultToEmployee(result: ResultSet) = Employee(
-        result.getLong("nIdEmployee"),
-        result.getString("cName"),
-        result.getString("cEmail"),
-        result.getString("cUserName"),
-        result.getString("cPhone"),
+        result.getLong("nId_Trabajador"),
+        result.getString("cNombre"),
+        result.getString("cCorreoElectronico"),
+        result.getString("cNombreUsuario"),
+        result.getString("cTelefono"),
         result.getString("cPassword"),
-        specialtyRepository.findById(result.getString("cIdSpecialty"))
+        specialtyRepository.findById(result.getString("cNombreEspecialidad"))
             .onFailure { throw Exception("Specialty not found") }.get()!!,
-        result.getLong("nIdStation"),
-        result.getLong("nIdResponsible")
+        result.getLong("nId_Estacion"),
+        result.getLong("nId_Responsable")
     )
 
     override fun existsById(id: Long): Boolean {

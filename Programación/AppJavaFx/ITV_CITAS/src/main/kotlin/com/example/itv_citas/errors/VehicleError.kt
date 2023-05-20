@@ -1,5 +1,5 @@
 package com.example.itv_citas.errors
 
 sealed class VehicleError(val message: String) {
-    object VehicleNotFound: VehicleError("ERROR: Vehicle not found")
+    object VehicleNotFound: VehicleError("Error Vehicle not found")
 }

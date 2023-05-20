@@ -23,7 +23,13 @@ class DataBaseManager: KoinComponent{
             logger.debug { "DataBaseManager ->\tinit ->\treset" }
             executeSQLFile(appConfig.appDBResetPath)
         }
+
         executeSQLFile(appConfig.appDBInitPath)
+
+        if (appConfig.appDBInsert){
+            logger.debug { "DataBaseManager ->\tinit ->\tinsert" }
+            executeSQLFile(appConfig.appDBInsertPath)
+        }
     }
 
     private fun executeSQLFile(sqlFile: String ){

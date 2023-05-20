@@ -25,6 +25,6 @@ fun VehicleDto.toClass(): Vehicle = Vehicle(
     type = TypeVehicle.valueOf(type),
     motor = TypeMotor.valueOf(motor),
     matriculationDate = LocalDate.parse(matriculationDate),
-    lastItvDate = LocalDateTime.parse(lastItvDate),
+    lastItvDate = LocalDateTime.parse(lastItvDate.replace(" ", "T")),
     dniOwner = dniOwner
 )

@@ -20,7 +20,7 @@ class SpecialtyRepositoryDataBase: SpecialtyRepository, KoinComponent {
     override fun findAll(): Iterable<Specialty> {
         logger.debug { "SpecialtyRepositoryDataBase ->\tfindAll" }
         val specialties = mutableListOf<Specialty>()
-        val sql = """SELECT * FROM tSpecialties"""
+        val sql = """SELECT * FROM tEspecialidad"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
@@ -35,7 +35,7 @@ class SpecialtyRepositoryDataBase: SpecialtyRepository, KoinComponent {
     override fun findById(id: String): Result<Specialty, SpecialtyError> {
         logger.debug { "SpecialtyRepositoryDataBase ->\tfindById" }
         var specialty:Specialty? = null
-        val sql = """SELECT * FROM tSpecialties WHERE cIdSpecialty = ?"""
+        val sql = """SELECT * FROM tEspecialidad WHERE cNombre = ?"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             stm.setString(1, id)
             val result = stm.executeQuery()
@@ -47,8 +47,8 @@ class SpecialtyRepositoryDataBase: SpecialtyRepository, KoinComponent {
     }
 
     private fun resultToSpecialty(result: ResultSet) = Specialty(
-        result.getString("cIdSpecialty"),
-        result.getInt("nSalary")
+        result.getString("cNombre"),
+        result.getInt("nSalario")
     )
 
     override fun existsById(id: String): Boolean {

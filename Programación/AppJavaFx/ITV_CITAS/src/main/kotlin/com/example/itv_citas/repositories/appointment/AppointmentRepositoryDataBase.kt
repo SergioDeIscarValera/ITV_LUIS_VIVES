@@ -11,7 +11,6 @@ import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.sql.ResultSet
-import java.sql.Statement
 import java.sql.Timestamp
 import java.time.LocalDateTime
 
@@ -30,20 +29,20 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
         return findByIdEmployee(idEmployee).filter { it.date in startDate..endDate }
     }
 
-    override fun findByCarNumber(carNumber: String): List<Appointment> {
-        logger.debug { "AppointmentRepositoryDataBase ->\tfindByCarNumber" }
-        return findAll().filter { it.carNumber == carNumber }
-    }
-
-    override fun findByDate(carNumber: String, startDate: LocalDateTime, endDate: LocalDateTime): List<Appointment> {
+    override fun findByDate(startDate: LocalDateTime, endDate: LocalDateTime): List<Appointment> {
         logger.debug { "AppointmentRepositoryDataBase ->\tfindByDate" }
         return findAll().filter { it.date in startDate..endDate }
+    }
+
+    override fun findByDateAndCarNumber(carNumber: String, startDate: LocalDateTime, endDate: LocalDateTime): List<Appointment> {
+        logger.debug { "AppointmentRepositoryDataBase ->\tfindByDate" }
+        return findByDate(startDate, endDate).filter { it.carNumber == carNumber }
     }
 
     override fun findAll(): Iterable<Appointment> {
         logger.debug { "AppointmentRepositoryDataBase ->\tfindAll" }
         val appointments = mutableListOf<Appointment>()
-        val sql = """SELECT * FROM tAppointment"""
+        val sql = """SELECT * FROM tCitas"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
@@ -55,12 +54,12 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
         return appointments.toList()
     }
 
-    override fun findById(id: Long): Result<Appointment, AppointmentError> {
+    override fun findById(id: String): Result<Appointment, AppointmentError> {
         logger.debug { "AppointmentRepositoryDataBase ->\tfindById" }
         var appointment: Appointment? = null
-        val sql = """SELECT * FROM tAppointment WHERE nIdAppointment = ?"""
+        val sql = """SELECT * FROM tCitas WHERE cMatricula = ?"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
-            stm.setLong(1, id)
+            stm.setString(1, id)
             val result = stm.executeQuery()
             if (result.next()){
                 appointment = resultToAppointment(result)
@@ -70,15 +69,14 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
     }
 
     private fun resultToAppointment(result: ResultSet) = Appointment(
-        result.getLong("nIdAppointment"),
-        result.getLong("nIdEmployee"),
-        result.getString("cCarNumber"),
-        result.getTimestamp("dDate").toLocalDateTime()
+        result.getLong("nId_Trabajador"),
+        result.getString("cMatricula"),
+        result.getTimestamp("dFecha_Citacion").toLocalDateTime()
     )
 
     override fun save(element: Appointment): Result<Appointment, AppointmentError> {
         logger.debug { "AppointmentRepositoryDataBase ->\tsave" }
-        return if (existsById(element.idAppointment)){
+        return if (existsById(element.carNumber)){
             update(element)
         }else{
             create(element)
@@ -87,32 +85,25 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
 
     private fun create(element: Appointment): Result<Appointment, AppointmentError> {
         logger.debug { "AppointmentRepositoryDataBase ->\tcreate" }
-        var newId = 0L
-        val sql = """INSERT INTO tAppointment (nIdEmployee, cCarNumber, dDate) VALUES (?, ?, ?)"""
-        dataBaseManager.dataBase.use {
-            it.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS).use { stm ->
-                stm.setLong(1, element.idEmployee)
-                stm.setString(2, element.carNumber)
-                stm.setTimestamp(3, Timestamp.valueOf(element.date))
-                stm.executeUpdate()
-                val result = stm.generatedKeys
-                if (result.next()){
-                    newId = result.getLong(1)
-                }
-            }
+        var result: Int
+        val sql = """INSERT INTO tCitas (nId_Trabajador, cMatricula, dFecha_Citacion) VALUES (?, ?, ?)"""
+        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+            stm.setLong(1, element.idEmployee)
+            stm.setString(2, element.carNumber)
+            stm.setTimestamp(3, Timestamp.valueOf(element.date))
+            result = stm.executeUpdate()
         }
-        return if (newId == 0L) Err(AppointmentError.AppointmentNotCreated) else Ok(element.copy(idAppointment = newId))
+        return if (result == 0) Err(AppointmentError.AppointmentNotCreated) else Ok(element)
     }
 
     private fun update(element: Appointment): Result<Appointment, AppointmentError> {
         logger.debug { "AppointmentRepositoryDataBase ->\tupdate" }
         var result: Int
-        val sql = """UPDATE tAppointment SET nIdEmployee = ?, cCarNumber = ?, dDate = ? WHERE nIdAppointment = ?"""
+        val sql = """UPDATE tCitas SET nId_Trabajador = ?, dFecha_Citacion = ? WHERE cMatricula = ?"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             stm.setLong(1, element.idEmployee)
-            stm.setString(2, element.carNumber)
-            stm.setTimestamp(3, Timestamp.valueOf(element.date))
-            stm.setLong(4, element.idAppointment)
+            stm.setTimestamp(2, Timestamp.valueOf(element.date))
+            stm.setString(3, element.carNumber)
             result = stm.executeUpdate()
         }
         return if (result == 1) Ok(element) else Err(AppointmentError.AppointmentNotUpdated)
@@ -123,12 +114,12 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
         elements.forEach { save(it) }
     }
 
-    override fun deleteById(id: Long): Result<Boolean, AppointmentError> {
+    override fun deleteById(id: String): Result<Boolean, AppointmentError> {
         logger.debug { "AppointmentRepositoryDataBase ->\tdeleteById" }
         var result: Int
-        val sql = """DELETE FROM tAppointment WHERE nIdAppointment = ?"""
+        val sql = """DELETE FROM tCitas WHERE cMatricula = ?"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
-            stm.setLong(1, id)
+            stm.setString(1, id)
             result = stm.executeUpdate()
         }
         return if (result == 1) Ok(true) else Err(AppointmentError.AppointmentNotDeleted)
@@ -136,18 +127,18 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
 
     override fun delete(element: Appointment): Result<Boolean, AppointmentError> {
         logger.debug { "AppointmentRepositoryDataBase ->\tdelete" }
-        return deleteById(element.idAppointment)
+        return deleteById(element.carNumber)
     }
 
     override fun deleteAll() {
         logger.debug { "AppointmentRepositoryDataBase ->\tdeleteAll" }
-        val sql = """DELETE FROM tAppointment"""
+        val sql = """DELETE FROM tCitas"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             stm.executeUpdate()
         }
     }
 
-    override fun existsById(id: Long): Boolean {
+    override fun existsById(id: String): Boolean {
         logger.debug { "AppointmentRepositoryDataBase ->\texistsById" }
         return findById(id).get() != null
     }
