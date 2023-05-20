@@ -5,13 +5,12 @@ DROP TABLE if exists ttrabajadores;
 DROP TABLE if exists tespecialidad;
 DROP TABLE if exists tEstacion;
 
-
 CREATE TABLE if not exists tEstacion(
   nId_Estacion INTEGER(3) PRIMARY KEY NOT NULL ,
   cNombre VARCHAR(30) NOT NULL ,
   cDireccion VARCHAR(50) NOT NULL ,
   cTelefono VARCHAR(15),
-  cCorreoElectronico VARCHAR(30)
+  cCorreoElectronico VARCHAR(50)
 );
 
 
@@ -23,7 +22,8 @@ CREATE TABLE if not exists tEspecialidad(
 
 CREATE TABLE if not exists tTrabajadores(
   nId_Trabajador INTEGER(3) PRIMARY KEY UNIQUE NOT NULL ,
-  nId_Estacion INTEGER(3)   NOT NULL,
+  nId_Estacion INTEGER(3) NOT NULL,
+  nId_Responsable INTEGER(3) NOT NULL,
   cNombreEspecialidad VARCHAR(15)  NOT NULL,
   cNombre VARCHAR(15) NOT NULL ,
   cTelefono VARCHAR(15),
@@ -36,6 +36,9 @@ CREATE TABLE if not exists tTrabajadores(
                                         ON DELETE RESTRICT,
   FOREIGN KEY (cNombreEspecialidad) REFERENCES tEspecialidad(cNombre)
                                         ON UPDATE CASCADE
+                                        ON DELETE RESTRICT,
+  FOREIGN KEY (nId_Responsable) REFERENCES tTrabajadores(nId_Trabajador)
+                                        ON UPDATE RESTRICT
                                         ON DELETE RESTRICT
 );
 
@@ -57,7 +60,7 @@ CREATE TABLE if not exists  tVehiculo(
     cTipoVehiculo VARCHAR(15) NOT NULL ,
     cTipoMotor VARCHAR(10) NOT NULL ,
     dFecha_Matriculacion DATE NOT NULL,
-    dFecha_UltimaRevision DATE NOT NULL,
+    dFecha_UltimaRevision TIMESTAMP NOT NULL,
 
     FOREIGN KEY (cDniPropietario) REFERENCES tPropietario(cDNI)
                                      ON UPDATE CASCADE
@@ -66,8 +69,8 @@ CREATE TABLE if not exists  tVehiculo(
 
 
 CREATE TABLE if not exists tCitas(
-  nId_Trabajador INTEGER(3)  UNIQUE NOT NULL ,
-  dFecha_Citacion DATE  NOT NULL,
+  nId_Trabajador INTEGER(3) NOT NULL ,
+  dFecha_Citacion TIMESTAMP  NOT NULL,
   cMatricula CHAR(7) NOT NULL ,
   PRIMARY KEY (nId_Trabajador,dFecha_Citacion,cMatricula),
 
@@ -78,4 +81,3 @@ CREATE TABLE if not exists tCitas(
                                  ON UPDATE CASCADE
                                  ON DELETE RESTRICT
 );
-
