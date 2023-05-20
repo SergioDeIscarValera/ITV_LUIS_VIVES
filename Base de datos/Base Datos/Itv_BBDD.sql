@@ -1,3 +1,10 @@
+DROP table if exists tcitas;
+DROP table if exists tvehiculo;
+DROP TABLE if exists tpropietario;
+DROP TABLE if exists ttrabajadores;
+DROP TABLE if exists tespecialidad;
+DROP TABLE if exists tEstacion;
+
 
 CREATE TABLE if not exists tEstacion(
   nId_Estacion INTEGER(3) PRIMARY KEY NOT NULL ,
@@ -19,7 +26,7 @@ CREATE TABLE if not exists tTrabajadores(
   nId_Estacion INTEGER(3)   NOT NULL,
   cNombreEspecialidad VARCHAR(15)  NOT NULL,
   cNombre VARCHAR(15) NOT NULL ,
-  nTelefono VARCHAR(15),
+  cTelefono VARCHAR(15),
   cCorreoElectronico VARCHAR(30) UNIQUE NOT NULL ,
   cNombreUsuario VARCHAR(15) UNIQUE NOT NULL ,
   cPassword VARCHAR(20) NOT NULL,
