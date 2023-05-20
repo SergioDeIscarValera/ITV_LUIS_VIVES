@@ -11,7 +11,7 @@ fun Appointment.toDto(): AppointmentDto = AppointmentDto(
     date = this.date.toString()
 )
 
-fun AppointmentDto.toModel(): Appointment = Appointment(
+fun AppointmentDto.toClass(): Appointment = Appointment(
     idAppointment = this.idAppointment,
     idEmployee = this.idEmployee,
     carNumber = this.carNumber,

@@ -8,13 +8,14 @@ import com.github.michaelbull.result.*
 import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.koin.core.qualifier.named
 import java.sql.ResultSet
 
 private val logger = KotlinLogging.logger {}
 
 class EmployeeRepositoryDataBase: EmployeeRepository, KoinComponent{
     private val dataBaseManager by inject<DataBaseManager>()
-    private val specialtyRepository by inject<SpecialtyRepository>()
+    private val specialtyRepository by inject<SpecialtyRepository>(named("SpecialtyBBDD"))
 
     override fun findAll(): Iterable<Employee> {
         logger.debug { "EmployeeRepositoryDataBase ->\tfindAll" }

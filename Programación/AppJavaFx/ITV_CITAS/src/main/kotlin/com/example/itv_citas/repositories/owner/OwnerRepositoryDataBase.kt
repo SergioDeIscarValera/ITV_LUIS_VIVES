@@ -11,13 +11,14 @@ import com.github.michaelbull.result.get
 import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.koin.core.qualifier.named
 import java.sql.ResultSet
 
 private val logger = KotlinLogging.logger {}
 
 class OwnerRepositoryDataBase: OwnerRepository, KoinComponent {
     private val dataBaseManager by inject<DataBaseManager>()
-    private val vehicleRepository by inject<VehicleRepository>()
+    private val vehicleRepository by inject<VehicleRepository>(named("VehicleBBDD"))
 
     override fun findAll(): Iterable<Owner> {
         logger.debug { "OwnerRepositoryDataBase ->\tfindAll" }
