@@ -1,17 +1,17 @@
+
 .floating-buttons {
     position: fixed;
-    bottom: 400px;
-    right: 20px;
+    bottom: 30rem;
+    right: 2rem;
     z-index: 9999;
 }
 
 .floating-button {
     display: block;
-    margin-bottom: 10px;
-    width: 50px;
-    height: 50px;
+    margin-bottom: 1rem;
+    width: 3rem;
+    height: 3rem;
     background:rgba(0, 0, 0, 0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     overflow: hidden;
 }
@@ -38,6 +38,35 @@
     --color-principal-nocturno: #78C2AD;
 }
 
+.textoInformativo1{
+    margin-top: 10rem;
+    align-content: center;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.textoInformativo1 p{
+    font-size: 2.5rem;
+    color: #2f9173;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: justify;
+}
+.parrafo{
+    align-content: center;
+    margin-left: 10rem;
+}
+
+
+.parrafo p {
+    font-size: 2rem;
+    color: #2f9173;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: justify;
+}
+
+.parrafoLittle p{
+    font-size: 1.8rem;
+}
 
 
 
@@ -63,15 +92,18 @@ body.pagina_cita.modo-nocturno {
 .modo-normal h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--color-principal);
-    margin-top: 50px;
+    margin-top: 7rem;
     text-align: center;
+    font-size: 2.5rem;
+
 }
 
 .modo-nocturno h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--color-principal-nocturno);
-    margin-top: 50px;
+    margin-top: 7rem;
     text-align: center;
+    font-size: 2.5rem;
 }
 
 h2 {
@@ -79,6 +111,7 @@ h2 {
     color: var(--color-principal);
     text-align: left;
     margin-left: 3%;
+    font-size: 2rem;
 }
 
 .modo-nocturno h2 {
@@ -112,7 +145,6 @@ h2 {
 
 
 #logoIzquierda {
-    margin-left: 20%;
     margin-top: 5%;
     width: 4rem;
     height: auto;
@@ -195,9 +227,9 @@ nav a:hover {
 }
 
 .margen-textos {
-    margin-left: 30px;
-    margin-right: 200px;
-    margin-bottom: 100px;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-bottom: 10rem;
 }
 
 .imgVehiculos {
@@ -213,8 +245,8 @@ nav a:hover {
 
 
 .container_modo-normal {
-    width: 600px;
-    height: 800px;
+    width: 40rem;
+    height: 55rem;
     background-color: #f3969a;
     border: 1px solid transparent;
     border-radius: 10px;
@@ -227,8 +259,8 @@ nav a:hover {
 }
 
 .container_modo-nocturno {
-    width: 600px;
-    height: 800px;
+    width: 40rem;
+    height: 55rem;
     background-color: #ff5151;
     border: 1px solid transparent;
     border-radius: 10px;
@@ -240,6 +272,10 @@ nav a:hover {
     margin-bottom: 5%; 
 }
 
+.divEndForm {
+    width: auto;
+    height: auto;
+}
 .modo-normal label {
     padding-left: 3%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -265,7 +301,7 @@ nav a:hover {
 }
 
 .divLabel {
-    margin-top: 50px;
+    margin-top: 3rem;
 }
 
 .enviar_button {
@@ -295,3 +331,11 @@ nav a:hover {
     float: right;
     margin-right: 50px;
 }
+
+.imgAsist{
+    width: 30rem;
+    margin-top: 5rem;
+    margin-left: 35rem;
+    margin-bottom: 6rem;
+}
+

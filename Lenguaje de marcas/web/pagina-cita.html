@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/home.css">
-    <title>Cita</title>
+
+
+    <title>Reserve su Cita</title>
+    <link rel="icon" type="image/png" href="img/logoClaro.png">
+
+
     <script>
         function cambiarModo() {
             var body = document.getElementById("body");
@@ -29,8 +34,13 @@
             };
         };
     </script>
+
 </head>
+
+
 <body id="body" class="pagina_cita modo-normal">
+
+    
     <header>
         <nav id="barraNavegacion" class="modo-normal">
             <div>
@@ -38,7 +48,7 @@
             </div>
             <ul>
                 <li><a href="pagina_principal.html">Home</a></li>
-                <li><a href="">Info</a></li>
+                <li><a href="pagina-info.html">Info</a></li>
                 <li><a href="#">Cita</a></li>
             </ul>
             <div>
@@ -51,6 +61,8 @@
             </div>
         </nav>
     </header>
+
+
     <div>
         <div id="containerFormulario" class="container_modo-normal">
             <form>
@@ -86,12 +98,14 @@
                     <label>Fecha de matriculación</label>
                     <input class="casillas_formulario" type="date" id="fechaMatriculacion" name="fechaMatriculacion">
                 </div>
-                <div>
+                <div class="divEndForm">
                     <img src="/img/codigo-de-barras.png" class="codigo_barras">
                     <button id="enviar_button" class="enviar_button" onclick="">Enviar datos</button>
                 </div>
             </form>
         </div>
+
+
         <div class="floating-buttons">
             <a class="floating-button">
                 <img src="img/instagram.png">
