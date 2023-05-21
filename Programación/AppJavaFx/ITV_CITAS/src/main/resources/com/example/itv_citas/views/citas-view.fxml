@@ -16,6 +16,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -28,12 +29,26 @@
         <menus>
           <Menu mnemonicParsing="false" text="Menú">
             <items>
-              <MenuItem fx:id="exportar_menu" mnemonicParsing="false" text="Exportar" />
-                  <MenuItem fx:id="exportar_en_menu" mnemonicParsing="false" text="Exportar en..." />
                   <MenuItem fx:id="cerrar_sesion_menu" mnemonicParsing="false" text="Cerrar sesion" />
                   <MenuItem fx:id="salir_menu" mnemonicParsing="false" text="Salir" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Ficheros">
+              <items>
+                  <Menu mnemonicParsing="false" text="Exportar">
+                    <items>
+                    <MenuItem fx:id="exportar_cita_menu" mnemonicParsing="false" text="Exportar citas" />
+                        <MenuItem fx:id="exportar_trabajadores_menu" mnemonicParsing="false" text="Exportar trabajadores" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Importar">
+                    <items>
+                        <MenuItem fx:id="importar_cita_menu" mnemonicParsing="false" text="Importar citas" />
+                        <MenuItem fx:id="importar_trabajadores_menu" mnemonicParsing="false" text="Importar trabajadores" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
         </menus>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -72,13 +87,13 @@
                               <TableColumn fx:id="matricula_column" prefWidth="112.0" style="-fx-background-color: #D2FFF2; -fx-border-radius: 5; -fx-border-color: black;" text="Matrícula" />
                           </columns>
                         </TableView>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                        <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="20.0" prefHeight="120.0" prefWidth="338.0">
                            <children>
-                              <Button fx:id="anyadir_button" mnemonicParsing="false" style="-fx-background-color: 0;">
+                              <Button fx:id="anyadir_button2" mnemonicParsing="false" style="-fx-background-color: 0;">
                                  <graphic>
-                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@anadir.png" />
+                                          <Image url="@../images/anadir.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -86,11 +101,11 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="editar_button" mnemonicParsing="false" style="-fx-background-color: 0;">
+                              <Button fx:id="editar_button1" mnemonicParsing="false" style="-fx-background-color: 0;">
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@editar.png" />
+                                          <Image url="@../images/editar.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -98,11 +113,11 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="borrar_button" mnemonicParsing="false" style="-fx-background-color: 0;">
+                              <Button fx:id="borrar_button1" mnemonicParsing="false" style="-fx-background-color: 0;">
                                  <graphic>
                                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@borrar.png" />
+                                          <Image url="@../images/borrar.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -110,11 +125,11 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="anyadir_button1" mnemonicParsing="false" style="-fx-background-color: 0;">
+                              <Button fx:id="anyadir_button11" mnemonicParsing="false" style="-fx-background-color: 0;">
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@exportar.png" />
+                                          <Image url="@../images/exportar.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -123,10 +138,7 @@
                                  </cursor>
                               </Button>
                            </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
+                        </FlowPane>
                      </children>
                   </VBox>
                </children>
@@ -148,7 +160,7 @@
                                           </Label>
                                           <ImageView fx:id="vehiculo_image" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@coche.png" />
+                                                <Image url="@../images/coche.png" />
                                              </image>
                                           </ImageView>
                                        </children>
@@ -263,7 +275,7 @@
                                           </Label>
                                           <ImageView fx:id="user_image" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@hombre.png" />
+                                                <Image url="@../images/hombre.png" />
                                              </image>
                                           </ImageView>
                                        </children>

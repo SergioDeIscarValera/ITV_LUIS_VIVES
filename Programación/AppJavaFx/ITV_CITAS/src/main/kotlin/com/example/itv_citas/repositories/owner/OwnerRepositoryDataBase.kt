@@ -38,7 +38,7 @@ class OwnerRepositoryDataBase: OwnerRepository, KoinComponent {
     override fun findById(id: String): Result<Owner, OwnerError> {
         logger.debug { "OwnerRepositoryDataBase ->\tfindById" }
         var owner:Owner? = null
-        val sql = """SELECT * FROM tPropietario WHERE cIdOwner = ?"""
+        val sql = """SELECT * FROM tPropietario WHERE cDNI = ?"""
         dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
             stm.setString(1, id)
             val result = stm.executeQuery()

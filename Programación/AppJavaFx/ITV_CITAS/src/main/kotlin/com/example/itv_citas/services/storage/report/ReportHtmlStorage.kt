@@ -68,10 +68,16 @@ class ReportHtmlStorage: ReportStorageService, KoinComponent {
             success = {
                 try {
                     val doc = Document.createShell("")
+                    val title = doc.createElement("h1")
+                    title.append("Reports Inspeccionamos Tu Coche:")
+
                     val table = doc.createElement("table")
                     table.append("<tr><th>ID</th><th>Favorable</th><th>Braking</th><th>Pollution</th><th>Inside</th><th>Lights</th><th>Employee ID</th><th>Employee Name</th><th>Vehicle Car Number</th><th>Brand</th><th>Model</th><th>Owner DNI</th><th>Owner Name</th><th>Owner Phone</th></tr>")
                     elements.forEach { addRowPerReport(it, table) }
+
+                    doc.body().appendChild(title)
                     doc.body().appendChild(table)
+
                     file.writeText(doc.outerHtml())
                     Ok(elements)
                 }catch (e: Exception) {
@@ -95,7 +101,7 @@ class ReportHtmlStorage: ReportStorageService, KoinComponent {
                     if (index != 0) {
                         val employee = employeeRepository.findById(element.select("td")[6].text().toLong()).get()
                             ?: throw Exception("Employee not found")
-                        val vehicle = vehicleRepository.findById(element.select("td")[7].text()).get()
+                        val vehicle = vehicleRepository.findById(element.select("td")[8].text()).get()
                             ?: throw Exception("Vehicle not found")
                         val owner = ownerRepository.findById(element.select("td")[11].text()).get()
                             ?: throw Exception("Owner not found")
