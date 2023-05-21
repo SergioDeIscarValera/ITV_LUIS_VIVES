@@ -45,8 +45,22 @@
     margin-right: 10rem;
 }
 
+.textoInformativo2{
+    margin-top: 10rem;
+    align-content: center;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-bottom: 5rem;
+}
+
+.textoInformativo2 p{
+    font-size: 2rem;
+    color: #2f9173;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
 .textoInformativo1 p{
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #2f9173;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: justify;
@@ -302,6 +316,32 @@ nav a:hover {
 
 .divLabel {
     margin-top: 3rem;
+}
+.horarios{
+    align-content: center;
+}
+.tableHorarios{
+    border-collapse: collapse;
+    width: 50rem;
+    height: 20rem;
+    margin-left: 35rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    
+}
+
+.tableHorarios th{
+    background-color:#2f9173 ;
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+}
+
+.tableHorarios td{
+    background-color:#78C2AD ;
+    font-size: 2rem;
+    color: black;
+    text-align: center;
 }
 
 .enviar_button {
