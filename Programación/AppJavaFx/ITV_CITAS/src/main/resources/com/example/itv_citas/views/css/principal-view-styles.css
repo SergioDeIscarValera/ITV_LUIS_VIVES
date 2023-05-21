@@ -1,0 +1,82 @@
+.background {
+    -fx-background-color: #b9f0e0;
+}
+
+.principal_image {
+    -fx-background-image: url('images/iniciar-sesion.png');
+    -fx-background-size: cover;
+}
+
+.correo_label {
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 14;
+}
+
+.correo_field {
+    -fx-background-color: #f0b4b6;
+    -fx-background-radius: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}
+
+.check_image_normal {
+
+}
+
+.check_image_pass {
+    -fx-background-image: url('images/check_pass.png');
+}
+
+.check_image_fail {
+    -fx-background-image: url('images/check_fail.png');
+}
+
+.password_label {
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 14;
+}
+
+.password_field {
+    -fx-background-color: #f0b4b6;
+    -fx-background-radius: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}
+
+.password_button_oculto {
+    -fx-background-color: 0;
+    -fx-background-image: url('images/oculto.png');
+}
+
+.password_button_mostrar {
+    -fx-background-color: 0;
+    -fx-background-image: url('images/mostrar.png');
+}
+
+.inicio_button {
+    -fx-background-color: #ffe7b3;
+    -fx-background-radius: 10;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 14;
+}
+
+.inicio_button_oscuro {
+    -fx-background-color: #FFD57B;
+    -fx-background-radius: 10;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 14;
+}
+
+.olvidar_button {
+    -fx-background-color: #ffe7b3;
+    -fx-background-radius: 10;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}
+
+.olvidar_button_oscuro {
+    -fx-background-color: #FFD57B;
+    -fx-background-radius: 10;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}

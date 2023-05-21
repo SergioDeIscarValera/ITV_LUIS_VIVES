@@ -1,0 +1,60 @@
+.menu_bar {
+    -fx-background-color: #abffd4;
+}
+
+.citas_pane {
+    -fx-background-color: #d2fff2;
+}
+
+.search_bar {
+    -fx-background-color: 0;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: black;
+}
+
+.filter_choice {
+    -fx-background-color: 0;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: black;
+}
+
+.table {
+    -fx-background-color: 0;
+}
+
+.columns {
+    -fx-background-color: #d2fff2;
+    -fx-border-radius: 5;
+    -fx-border-color: black;
+}
+
+.buttons {
+    -fx-background-color: 0;
+}
+
+.coche_pane {
+    -fx-background-color: #ffd6d7;
+}
+
+.matricula_dni_field {
+    -fx-border-insets: -5;
+    -fx-border-radius: 5;
+    -fx-border-color: black;
+}
+
+.datos_fields {
+    -fx-background-color: 0;
+    -fx-border-radius: 5;
+    -fx-border-color: black;
+}
+
+.propietario_pane {
+    -fx-background-color: #ffebc0;
+}
+
+.labels {
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}

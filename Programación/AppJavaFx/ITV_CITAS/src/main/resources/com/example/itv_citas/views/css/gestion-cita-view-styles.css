@@ -1,0 +1,15 @@
+.pane {
+    -fx-background-color: #d2fff2;
+}
+
+.labels {
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}
+
+.fields {
+    -fx-background-color: 0;
+    -fx-border-color: #f0b4b6;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+}
