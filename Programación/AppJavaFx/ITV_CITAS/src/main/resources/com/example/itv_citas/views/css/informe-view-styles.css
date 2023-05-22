@@ -1,5 +1,5 @@
-.pane {
-    -fx-background-color: #d2fff2;
+.background {
+    -fx-background-color: #b9f0e0;
 }
 
 .labels {
@@ -9,8 +9,17 @@
 
 .fields {
     -fx-background-color: 0;
-    -fx-border-color: #f0b4b6;
     -fx-border-radius: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+    -fx-border-color:#f0b4b6;
+    -fx-border-width: 2;
+}
+
+.check_box {
+    -fx-background-color: 0;
+    -fx-border-radius: 20;
+    -fx-border-color:#f0b4b6;
     -fx-border-width: 2;
 }
 

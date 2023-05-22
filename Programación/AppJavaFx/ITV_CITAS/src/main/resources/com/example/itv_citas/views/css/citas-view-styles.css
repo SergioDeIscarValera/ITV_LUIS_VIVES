@@ -34,6 +34,11 @@
     -fx-background-color: 0;
 }
 
+.buttons:hover {
+    -fx-background-color: #78ffd9;
+    -fx-background-radius: 10;
+}
+
 .coche_pane {
     -fx-background-color: #ffd6d7;
 }

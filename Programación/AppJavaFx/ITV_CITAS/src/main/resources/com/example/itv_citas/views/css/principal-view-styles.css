@@ -7,20 +7,13 @@
     -fx-background-size: cover;
 }
 
-.correo_label {
-    -fx-font-family: "Century Gothic";
-    -fx-font-size: 14;
-}
-
-.correo_field {
-    -fx-background-color: #f0b4b6;
-    -fx-background-radius: 20;
+.fields {
+    -fx-background-color: 0;
+    -fx-border-radius: 20;
     -fx-font-family: "Century Gothic";
     -fx-font-size: 13;
-}
-
-.check_image_normal {
-
+    -fx-border-color:#f0b4b6;
+    -fx-border-width: 2;
 }
 
 .check_image_pass {
@@ -31,52 +24,40 @@
     -fx-background-image: url('images/check_fail.png');
 }
 
-.password_label {
+.labels {
     -fx-font-family: "Century Gothic";
     -fx-font-size: 14;
 }
 
-.password_field {
-    -fx-background-color: #f0b4b6;
-    -fx-background-radius: 20;
-    -fx-font-family: "Century Gothic";
-    -fx-font-size: 13;
-}
-
-.password_button_oculto {
+.password_button {
     -fx-background-color: 0;
-    -fx-background-image: url('images/oculto.png');
-}
-
-.password_button_mostrar {
-    -fx-background-color: 0;
-    -fx-background-image: url('images/mostrar.png');
 }
 
 .inicio_button {
-    -fx-background-color: #ffe7b3;
-    -fx-background-radius: 10;
+    -fx-background-color: 0;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+    -fx-border-color: #56cc9d;
     -fx-font-family: "Century Gothic";
     -fx-font-size: 14;
 }
 
-.inicio_button_oscuro {
-    -fx-background-color: #FFD57B;
-    -fx-background-radius: 10;
+.inicio_button:hover {
+    -fx-background-color: #56cc9d;
+    -fx-background-radius: 20;
     -fx-font-family: "Century Gothic";
     -fx-font-size: 14;
 }
 
 .olvidar_button {
-    -fx-background-color: #ffe7b3;
-    -fx-background-radius: 10;
+    -fx-background-color: 0;
     -fx-font-family: "Century Gothic";
     -fx-font-size: 13;
 }
 
-.olvidar_button_oscuro {
-    -fx-background-color: #FFD57B;
-    -fx-background-radius: 10;
+.olvidar_button:hover {
+    -fx-background-color: #ffe6af;
+    -fx-background-radius: 20;
     -fx-font-family: "Century Gothic";
     -fx-font-size: 13;
 }
