@@ -4,45 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/general/general.css">
+    <link rel="stylesheet" href="css/botonesFlotantes/botones-flotantes.css">
+    <link rel="stylesheet" href="css/nav/nav.css">
+
+    <link rel="stylesheet" href="css/cita/cita.css">
+
+    <link id="general" rel="stylesheet" href="css/general/general-light.css">
+    <link id="cita" rel="stylesheet" href="css/cita/cita-light.css">
+    <link id="nav" rel="stylesheet" href="css/nav/nav-light.css">
 
 
     <title>Reserve su Cita</title>
     <link rel="icon" type="image/png" href="img/logoClaro.png">
 
 
+    <script src="js/formulario.js"></script>
+    <script src="js/changeBackground.js"></script>
     <script>
+        let flag = false;
         function cambiarModo() {
-            var body = document.getElementById("body");
-            var nav = document.getElementById("barraNavegacion");
-            var botonLuna = document.getElementById("botonLuna");
-            var botonSol = document.getElementById("botonSol");
-            var container = document.getElementById("containerFormulario")
+            let newStyle = "";
+            
+            if(flag){
+                newStyle = "light";
+            }else{
+                newStyle = "dark";
+            }
 
-            if (botonLuna.style.display === "block") {
-                botonLuna.style.display = "none";
-                botonSol.style.display = "block";
-                body.className = "pagina_cita modo-nocturno";
-                nav.className = "modo-nocturno";
-                container.className = "container_modo-nocturno"
-            } else {
-                botonLuna.style.display = "block";
-                botonSol.style.display = "none";
-                body.className = "pagina_cita modo-normal";
-                nav.className = "modo-normal";
-                container.className = "container_modo-normal"
-            };
+            setHref("general", newStyle);
+            setHref("cita", newStyle);
+            setHref("nav", newStyle);
+
+            flag = !flag;
         };
     </script>
-
 </head>
-
-
-<body id="body" class="pagina_cita modo-normal">
-
-    
+<body>
     <header>
-        <nav id="barraNavegacion" class="modo-normal">
+        <nav>
             <div>
                 <img id="logoIzquierda" src="img/logoClaro.png">
             </div>
@@ -52,74 +52,73 @@
                 <li><a href="#">Cita</a></li>
             </ul>
             <div>
-                <button id="botonLuna" class="botonLuna" onclick="cambiarModo()">
-                    <img src="img/luna.png">
-                </button>
-                <button id="botonSol" class="botonSol" onclick="cambiarModo()">
-                    <img src="img/sol.png">
+                <button onclick="cambiarModo()">
+                    <img class="color_button botonLuna" src="img/luna.png">
+                    <img class="color_button botonSol" src="img/sol.png">
                 </button>
             </div>
         </nav>
     </header>
-
-
-    <div>
-        <div id="containerFormulario" class="container_modo-normal">
-            <form>
-                <h2>Cita<img src="/img/programador.png" class="imagen_usuario"></h2>
-                <br>
-                <h2>Formulario</h2>
-                <br>
-                <div class="divLabel">
-                    <label>Nombre</label>
-                    <input class="casillas_formulario" type="text" id="nombre" name="nombre">
-                </div>
-                <div class="divLabel">
-                    <label>Apellidos</label>
-                    <input class="casillas_formulario" type="text" id="apellidos" name="apellidos">
-                </div>
-                <div class="divLabel">
-                    <label>Correo electrónico</label>
-                    <input class="casillas_formulario" type="email" id="correo" name="correo">
-                </div>
-                <div class="divLabel">
-                    <label>Teléfono de contacto</label>
-                    <input class="casillas_formulario" type="tel" id="telefono" name="telefono">
-                </div>
-                <div class="divLabel">
-                    <label>Matrícula del vehículo</label>
-                    <input class="casillas_formulario" type="text" id="matricula" name="matricula">
-                </div>
-                <div class="divLabel">
-                    <label>Tipo de vehículo</label>
-                    <input class="casillas_formulario" type="text" id="tipoVehiculo" name="tipoVehiculo">
-                </div>
-                <div class="divLabel">
-                    <label>Fecha de matriculación</label>
-                    <input class="casillas_formulario" type="date" id="fechaMatriculacion" name="fechaMatriculacion">
-                </div>
-                <div class="divEndForm">
-                    <img src="/img/codigo-de-barras.png" class="codigo_barras">
-                    <button id="enviar_button" class="enviar_button" onclick="">Enviar datos</button>
-                </div>
-            </form>
+    <div class="container">
+        <div class="title_container">
+            <h1>Cita Formulario:</h1>
+            <img src="/img/programador.png" class="imagen_usuario">
         </div>
-
+        <form action="javascript:checkForm()">
+            <div class="row">
+                <label for="nombre">Nombre</label>
+                <input autofocus type="text" id="nombre" name="nombre">
+            </div>
+            <div class="row">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos">
+            </div>
+            <div class="row">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo">
+            </div>
+            <div class="row">
+                <label for="telefono">Teléfono de contacto</label>
+                <input type="tel" id="telefono" name="telefono">
+            </div>
+            <div class="row">
+                <label for="matricula">Matrícula del vehículo</label>
+                <input type="text" id="matricula" name="matricula" placeholder="1234ABC">
+            </div>
+            <div class="row">
+                <label for="tipoVehiculo">Tipo de vehículo</label>
+                <select id="tipoVehiculo" name="tipoVehiculo">
+                    <option value="TURISMO">Turismo</option>
+                    <option value="FURGONETA">Furgoneta</option>
+                    <option value="CAMION">Camión</option>
+                    <option value="MOTOCICLETA">Motocicleta</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="fechaMatriculacion">Fecha de matriculación</label>
+                <input type="date" id="fechaMatriculacion" name="fechaMatriculacion">
+            </div>
+            <div class="row">
+                <img class="codigo_barras" src="/img/codigo-de-barras.png">
+                <button type="reset" id="enviar_button" class="reset_button" onclick="">Borrar</button>
+                <button type="submit" id="enviar_button" class="enviar_button" onclick="">Enviar datos</button>
+            </div>
+        </form>
 
         <div class="floating-buttons">
-            <a class="floating-button">
+            <a href="#">
                 <img src="img/instagram.png">
             </a>
-            <a class="floating-button">
+            <a href="#">
                 <img src="img/twitter.png">
             </a>
-            <a class="floating-button">
+            <a href="#">
                 <img src="img/whatsapp.png">
             </a>
-            <a class="floating-button">
+            <a href="#">
                 <img src="img/facebook.png">
             </a>
-            <a class="floating-button">
+            <a href="#">
                 <img src="img/tiktok.png">
             </a>
         </div>

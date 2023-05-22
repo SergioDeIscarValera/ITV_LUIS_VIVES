@@ -1,0 +1,53 @@
+nav {
+    background-color: var(--color-fondo-secondary);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    list-style: none;
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+nav a:hover {
+    background-color:  var(--secondary);
+    color: var(--light);
+}
+
+nav #logoIzquierda{
+    width: 7rem;
+    height: auto;
+}
+
+nav .color_button{
+    width: 2rem;
+    height: 2rem;
+    transition: all ease-in-out 200ms;
+}
+
+nav .color_button:hover{
+    transform: scale(1.1);
+    filter: hue-rotate(180deg);
+}
+
+nav button{
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+}

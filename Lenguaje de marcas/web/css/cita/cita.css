@@ -1,0 +1,73 @@
+.title_container{
+    margin: 6rem 0 1rem 0;
+    display: flex;
+}
+
+.imagen_usuario {
+    height: 100px;
+    width: auto;
+}
+
+form {
+    width: 40%;
+    background-color: var(--secondary);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+form input, select{
+    width: 15rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 0 0 0 0.5rem;
+    transition: all ease-in-out 200ms;
+}
+
+form input:hover {
+    background-color: var(--info);
+}
+
+form input:focus {
+    background-color: var(--warning);
+}
+
+form .row {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form button{
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    padding: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--drak);
+    font-size: 22px;
+}
+
+.enviar_button {
+    background-color: var(--success);
+}
+
+.reset_button {
+    background-color: var(--danger);
+}
+
+.codigo_barras {
+    height: 8rem;
+    width: auto;
+}
