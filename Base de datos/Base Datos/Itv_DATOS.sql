@@ -1,6 +1,10 @@
 INSERT INTO testacion (nId_Estacion, cNombre, cDireccion, cTelefono, cCorreoElectronico)
 VALUES (001, 'Estacion 001', 'C/Rioja, 7', 915874596, 'inspeccionamostucoche@gmail.com');
 
+
+INSERT INTO tpropietario (cDNI, cNombre, cApellidos, cTelefono, cCorreoElectronico)
+VALUES ('54875241Q', 'Sara', 'Gomez', '652258745', 'saragomez@gmail.com');
+
 INSERT INTO tespecialidad (cNombre, nSalario)
 VALUES ('ADMINISTRACION', 1650),
        ('ELECTRICIDAD', 1800),
@@ -40,7 +44,8 @@ VALUES ('54875241R', 'Sara', 'Gomez', '652258745', 'saragomez@gmail.com'),
        ('51448759J', 'Roman', 'Garcia', '655252123', 'romangarcia@gmail.com'),
        ('52148759P', 'Gloria', 'Benito', '663587520', 'gloriabenito@hotmail.com'),
        ('58745145V', 'Juan', 'Colon', '635548752', 'juancolon@gmail.com'),
-       ('55214857E', 'Rosa', 'Perez', '699877741', 'rosaperez@outlook.com');
+       ('55214857E', 'Rosa', 'Perez', '699877741', 'rosaperez@outlook.com'),
+       ('55214857R', 'Rosa', 'Perez', '699877741', 'rosaperez@outlook.com');
 
 INSERT INTO tvehiculo (cMatricula, cDniPropietario, cMarca, cModelo, cTipoVehiculo, cTipoMotor, dFecha_Matriculacion, dFecha_UltimaRevision)
 VALUES  ('5421GVJ', '54875241R', 'Alfa Romeo', 'Stelvio', 'TURISMO', 'GASOLINA', DATE('2017-02-25'), TIMESTAMP ('2022-06-23 12:47:29')),
