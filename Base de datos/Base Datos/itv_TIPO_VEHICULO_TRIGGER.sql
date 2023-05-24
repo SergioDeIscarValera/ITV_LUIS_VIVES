@@ -5,7 +5,7 @@ DROP FUNCTION IF EXISTS validar_tipo_vehiculo;
 DELIMITER $$
 CREATE FUNCTION validar_tipo_vehiculo(tipo VARCHAR(15)) RETURNS BOOLEAN
     BEGIN
-        RETURN tipo = 'ADMINISTRACION' OR tipo = 'ELECTRICIDAD' OR tipo = 'MOTOR' OR tipo = 'MECANICA' OR tipo = 'INTERIOR';
+        RETURN tipo = 'CAMIÓN' OR tipo = 'MOTOCICLETA' OR tipo = 'TURISMO' OR tipo = 'FURGONETA';
     END $$;
 
 

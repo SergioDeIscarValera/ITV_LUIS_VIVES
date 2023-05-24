@@ -42,6 +42,3 @@ BEGIN
     SELECT line as 'Result';
 END;
 $$;
-
-
-CALL ListarPlantilla(1)
