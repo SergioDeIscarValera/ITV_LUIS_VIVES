@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,7 +14,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="363.0" spacing="20.0" styleClass="background" stylesheets="@css/informe-view-styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -31,7 +31,7 @@
             </ImageView>
          </children>
       </HBox>
-      <GridPane prefHeight="295.0" prefWidth="500.0">
+      <GridPane prefHeight="295.0" prefWidth="500.0" styleClass="spinner-container">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.5999755859375" minWidth="10.0" prefWidth="105.4" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.00000762939453" minWidth="10.0" prefWidth="217.4" />
@@ -59,8 +59,6 @@
             <TextField editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label styleClass="labels" text="Fecha" />
             <TextField editable="false" styleClass="fields" GridPane.columnIndex="1" />
             <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
@@ -78,6 +76,8 @@
                   <Insets left="5.0" />
                </GridPane.margin>
             </CheckBox>
+            <Spinner prefHeight="26.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Spinner prefHeight="26.0" prefWidth="253.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
          <padding>
             <Insets left="20.0" right="20.0" />

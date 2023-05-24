@@ -15,7 +15,7 @@ CREATE TABLE if not exists tEspecialidad(
 
 
 CREATE TABLE if not exists tTrabajadores(
-  nId_Trabajador INTEGER(3) PRIMARY KEY UNIQUE NOT NULL ,
+  nId_Trabajador INTEGER(3) PRIMARY KEY AUTO_INCREMENT,
   nId_Estacion INTEGER(3) NOT NULL,
   nId_Responsable INTEGER(3) NOT NULL,
   cNombreEspecialidad VARCHAR(15)  NOT NULL,

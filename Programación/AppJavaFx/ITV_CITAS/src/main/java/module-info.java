@@ -31,6 +31,9 @@ module com.example.itv_citas {
 
     opens com.example.itv_citas.dto to com.google.gson;
 
-    /*opens com.example.itv_citas.controllers to javafx.fxml;
-    exports com.example.itv_citas.controllers;*/
+    opens com.example.itv_citas.controllers to javafx.fxml;
+    exports com.example.itv_citas.controllers;
+
+    opens com.example.itv_citas.models to javafx.fxml;
+    exports com.example.itv_citas.models;
 }

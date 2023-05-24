@@ -27,7 +27,7 @@ tasks.withType(JavaCompile) {
 
 application {
   mainModule = 'com.example.itv_citas'
-  mainClass = 'com.example.itv_citas.HelloApplication'
+  mainClass = 'com.example.itv_citas.MyApplication'
 }
 
 [compileKotlin, compileTestKotlin].forEach {

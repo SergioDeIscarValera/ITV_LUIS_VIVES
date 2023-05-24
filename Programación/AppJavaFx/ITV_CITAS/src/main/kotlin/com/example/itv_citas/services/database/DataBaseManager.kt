@@ -13,7 +13,7 @@ import java.sql.DriverManager
 private val logger = KotlinLogging.logger {  }
 
 class DataBaseManager: KoinComponent{
-    private val appConfig: AppConfig by inject()
+    private val appConfig by inject<AppConfig>()
     val dataBase get() = DriverManager.getConnection(appConfig.appDBURL)
 
     init {

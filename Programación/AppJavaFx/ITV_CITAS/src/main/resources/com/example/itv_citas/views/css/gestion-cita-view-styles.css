@@ -14,6 +14,16 @@
     -fx-border-width: 2;
 }
 
+.fields:hover{
+    -fx-border-color:#6cc3d590;
+    -fx-border-width: 2;
+}
+
+.fields:focused{
+    -fx-border-color:#ffce6790;
+    -fx-border-width: 2;
+}
+
 .button {
     -fx-background-color: 0;
 }

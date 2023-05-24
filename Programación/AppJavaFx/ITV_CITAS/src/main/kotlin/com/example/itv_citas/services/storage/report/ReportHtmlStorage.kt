@@ -1,6 +1,5 @@
 package com.example.itv_citas.services.storage.report
 
-import com.example.itv_citas.config.AppConfig
 import com.example.itv_citas.dto.ReportDto
 import com.example.itv_citas.errors.ReportError
 import com.example.itv_citas.mappers.toClass
@@ -24,18 +23,15 @@ import org.koin.core.qualifier.named
 private val logger = KotlinLogging.logger {}
 
 class ReportHtmlStorage: ReportStorageService, KoinComponent {
-    private val appConfig by inject<AppConfig>()
-
     private val ownerRepository by inject<OwnerRepository>(named("OwnerBBDD"))
     private val employeeRepository by inject<EmployeeRepository>(named("EmployeeBBDD"))
     private val vehicleRepository by inject<VehicleRepository>(named("VehicleBBDD"))
 
-    // Por ahora, luego hay que hacer para pasar la ruta de donde se quiera exportar/importar
-    private val localPath = "${appConfig.appData}${File.separator}report.html"
+    private val fileName = File.separator + "reports.html"
 
-    override fun save(element: Report): Result<Report, ReportError> {
+    override fun save(element: Report, filePath: String): Result<Report, ReportError> {
         logger.debug { "ReportHtmlStorage ->\tsave" }
-        val file = File(localPath)
+        val file = File(filePath + fileName)
         return file.validate(FileAction.WRITE).mapBoth(
             success = {
                 try {
@@ -61,9 +57,9 @@ class ReportHtmlStorage: ReportStorageService, KoinComponent {
         table.append("<tr><td>${element.id}</td><td>${element.favorable}</td><td>${element.braking}</td><td>${element.pollution}</td><td>${element.inside}</td><td>${element.lights}</td><td>${element.employee.id}</td><td>${element.employee.name}</td><td>${element.vehicle.carNumber}</td><td>${element.vehicle.brand}</td><td>${element.vehicle.model}</td><td>${owner.ownerDNI}</td><td>${owner.name}</td><td>${owner.phone}</td></tr>")
     }
 
-    override fun saveAll(elements: List<Report>): Result<List<Report>, ReportError> {
+    override fun saveAll(elements: List<Report>, filePath: String): Result<List<Report>, ReportError> {
         logger.debug { "ReportHtmlStorage ->\tsaveAll" }
-        val file = File(localPath)
+        val file = File(filePath + fileName)
         return file.validate(FileAction.WRITE).mapBoth(
             success = {
                 try {
@@ -90,9 +86,9 @@ class ReportHtmlStorage: ReportStorageService, KoinComponent {
         )
     }
 
-    override fun loadAll(): Result<List<Report>, ReportError> {
+    override fun loadAll(filePath: String): Result<List<Report>, ReportError> {
         logger.debug { "ReportHtmlStorage ->\tloadAll" }
-        val file = File(localPath)
+        val file = File(filePath)
         return file.validate(FileAction.READ).mapBoth(
             success = {
                 val doc = Jsoup.parse(file, "UTF-8")

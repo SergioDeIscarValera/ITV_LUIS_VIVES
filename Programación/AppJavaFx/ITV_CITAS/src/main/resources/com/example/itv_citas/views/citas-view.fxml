@@ -24,28 +24,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="586.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="586.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.itv_citas.controllers.CitasController">
    <children>
       <MenuBar fx:id="menu_bar" styleClass="menu_bar" stylesheets="@css/citas-view-styles.css">
         <menus>
           <Menu mnemonicParsing="false" text="Menú">
             <items>
-                  <MenuItem fx:id="cerrar_sesion_menu" mnemonicParsing="false" text="Cerrar sesion" />
-                  <MenuItem fx:id="salir_menu" mnemonicParsing="false" text="Salir" />
+                  <MenuItem fx:id="manuCerrarSesion" mnemonicParsing="false" text="Cerrar sesion" />
+                  <MenuItem fx:id="menuSalir" mnemonicParsing="false" text="Salir" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Ficheros">
               <items>
                   <Menu mnemonicParsing="false" text="Exportar">
                     <items>
-                    <MenuItem fx:id="exportar_cita_menu" mnemonicParsing="false" text="Exportar citas" />
-                        <MenuItem fx:id="exportar_trabajadores_menu" mnemonicParsing="false" text="Exportar trabajadores" />
+                    <MenuItem fx:id="menuExportarCitas" mnemonicParsing="false" text="Exportar citas" />
+                        <MenuItem fx:id="menuExportarTrabajadores" mnemonicParsing="false" text="Exportar trabajadores" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Importar">
                     <items>
-                        <MenuItem fx:id="importar_cita_menu" mnemonicParsing="false" text="Importar citas" />
-                        <MenuItem fx:id="importar_trabajadores_menu" mnemonicParsing="false" text="Importar trabajadores" />
+                        <MenuItem fx:id="menuImportarCitas" mnemonicParsing="false" text="Importar citas" />
+                        <MenuItem fx:id="menuImportarTrabajadores" mnemonicParsing="false" text="Importar trabajadores" />
                     </items>
                   </Menu>
               </items>
@@ -63,12 +63,12 @@
                      <children>
                         <HBox prefHeight="32.0" prefWidth="338.0" spacing="2.0">
                            <children>
-                              <TextField fx:id="search_bar" prefHeight="25.0" prefWidth="220.0" promptText="Buscar..." styleClass="search_bar" stylesheets="@css/citas-view-styles.css">
+                              <TextField fx:id="textFilter" prefHeight="25.0" prefWidth="220.0" promptText="Filtrar por matrícula..." styleClass="fields" stylesheets="@css/citas-view-styles.css">
                                  <HBox.margin>
                                     <Insets left="1.0" />
                                  </HBox.margin>
                               </TextField>
-                              <ChoiceBox fx:id="filter_choice" prefWidth="150.0" styleClass="filter_choice" stylesheets="@css/citas-view-styles.css">
+                              <ChoiceBox fx:id="choiceTipo" prefWidth="150.0" styleClass="fields" stylesheets="@css/citas-view-styles.css">
                                  <HBox.margin>
                                     <Insets right="2.0" />
                                  </HBox.margin>
@@ -81,21 +81,49 @@
                               <Insets top="2.0" />
                            </VBox.margin>
                         </HBox>
-                        <AnchorPane>
+                        <GridPane hgap="10.0" prefHeight="51.0" prefWidth="338.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.39999389648438" minWidth="10.0" prefWidth="152.39999389648438" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.20002746582028" minWidth="10.0" prefWidth="135.20000610351562" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="101.199951171875" minWidth="10.0" prefWidth="26.799972534179744" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                          </rowConstraints>
                            <children>
-                              <DatePicker prefHeight="25.0" prefWidth="338.0" promptText="Seleccione una fecha o rango..." AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="1.0" />
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label styleClass="labels" text="Fecha inicial:" />
+                                    <DatePicker fx:id="dateInicial" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <Label styleClass="labels" text="Fcha final:" />
+                                    <DatePicker fx:id="dateFinal" editable="false" />
+                                 </children>
+                              </VBox>
+                              <Button fx:id="buttonClearDate" mnemonicParsing="false" prefHeight="9.0" prefWidth="14.0" styleClass="buttons" translateX="-10.0" GridPane.columnIndex="2">
+                                 <graphic>
+                                    <ImageView cache="true" fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/borrar.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                            </children>
-                        </AnchorPane>
-                        <TableView fx:id="table" prefHeight="495.0" prefWidth="327.0" style="-fx-background-color: 0;">
+                        </GridPane>
+                        <TableView fx:id="tableCitas" prefHeight="410.0" prefWidth="269.0" styleClass="table" stylesheets="@css/citas-view-styles.css">
                           <columns>
-                            <TableColumn fx:id="fecha_column" prefWidth="111.0" style="-fx-background-color: #D2FFF2; -fx-border-color: black; -fx-border-radius: 5;" text="Fecha" />
-                            <TableColumn fx:id="trabajdor_column" prefWidth="112.0" style="-fx-background-color: #D2FFF2; -fx-border-color: black; -fx-border-radius: 5;" text="Trabajador" />
-                              <TableColumn fx:id="matricula_column" prefWidth="112.0" style="-fx-background-color: #D2FFF2; -fx-border-radius: 5; -fx-border-color: black;" text="Matrícula" />
+                            <TableColumn fx:id="columnFecha" prefWidth="111.0" text="Fecha" />
+                            <TableColumn fx:id="columnTrabajador" prefWidth="112.0" text="Trabajador" />
+                              <TableColumn fx:id="columnMatricula" prefWidth="112.0" text="Matrícula" />
                           </columns>
                         </TableView>
-                        <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="20.0" prefHeight="120.0" prefWidth="338.0">
+                        <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="20.0" prefHeight="56.0" prefWidth="338.0">
                            <children>
-                              <Button fx:id="anyadir_button2" mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
+                              <Button fx:id="buttonNuevo" mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
                                  <graphic>
                                     <ImageView fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -107,7 +135,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="editar_button1" mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
+                              <Button fx:id="buttonEditar" mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -119,7 +147,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="borrar_button1" mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
+                              <Button fx:id="buttonBorrar" mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
                                  <graphic>
                                     <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -131,7 +159,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="anyadir_button11" mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
+                              <Button fx:id="buttonExportarCita" mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -143,7 +171,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
+                              <Button fx:id="buttonCrearInforme" mnemonicParsing="false" styleClass="buttons" stylesheets="@css/citas-view-styles.css">
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -171,12 +199,12 @@
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="150.0">
                                        <children>
-                                          <Label fx:id="matricula_field" styleClass="matricula_dni_field" stylesheets="@css/citas-view-styles.css" text="       ">
+                                          <Label fx:id="textMatricula" styleClass="matricula_dni_field" stylesheets="@css/citas-view-styles.css" text="       ">
                                              <font>
                                                 <Font name="Monospaced Regular" size="22.0" />
                                              </font>
                                           </Label>
-                                          <ImageView fx:id="vehiculo_image" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imageVehicle" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/coche.png" />
                                              </image>
@@ -204,7 +232,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="marca_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="1">
+                                          <TextField fx:id="textMarca" editable="false" styleClass="datos_fields" GridPane.columnIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="5.0" />
                                              </GridPane.margin>
@@ -217,7 +245,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="tipo_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextField fx:id="textTipoVehicle" editable="false" styleClass="datos_fields" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="5.0" />
                                              </GridPane.margin>
@@ -230,7 +258,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="fecha_matr_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <TextField fx:id="textDateMatriculacion" editable="false" styleClass="datos_fields" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets right="5.0" />
                                              </GridPane.margin>
@@ -243,7 +271,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="modelo_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="3">
+                                          <TextField fx:id="textModelo" editable="false" styleClass="datos_fields" GridPane.columnIndex="3">
                                              <GridPane.margin>
                                                 <Insets right="10.0" />
                                              </GridPane.margin>
@@ -256,7 +284,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="motor_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                          <TextField fx:id="textMotor" editable="false" styleClass="datos_fields" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="10.0" />
                                              </GridPane.margin>
@@ -269,7 +297,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="ult_revision_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                          <TextField fx:id="textUltimaRevision" editable="false" styleClass="datos_fields" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets right="10.0" />
                                              </GridPane.margin>
@@ -286,7 +314,7 @@
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="150.0">
                                        <children>
-                                          <Label fx:id="dni_field" styleClass="matricula_dni_field" stylesheets="@css/citas-view-styles.css" text="         ">
+                                          <Label fx:id="textDni" styleClass="matricula_dni_field" stylesheets="@css/citas-view-styles.css" text="         ">
                                              <font>
                                                 <Font name="Monospaced Regular" size="22.0" />
                                              </font>
@@ -318,7 +346,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="nombre_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="1">
+                                          <TextField fx:id="textNombre" editable="false" styleClass="datos_fields" GridPane.columnIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="5.0" />
                                              </GridPane.margin>
@@ -331,7 +359,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="telefono_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextField fx:id="textTelefono" editable="false" styleClass="datos_fields" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="5.0" />
                                              </GridPane.margin>
@@ -344,7 +372,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="apellido_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="3">
+                                          <TextField fx:id="textApellido" editable="false" styleClass="datos_fields" GridPane.columnIndex="3">
                                              <GridPane.margin>
                                                 <Insets right="10.0" />
                                              </GridPane.margin>
@@ -357,7 +385,7 @@
                                                 <Font name="Century Gothic" size="13.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="correo_field" editable="false" styleClass="datos_fields" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                          <TextField fx:id="textCorreo" editable="false" styleClass="datos_fields" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="10.0" />
                                              </GridPane.margin>

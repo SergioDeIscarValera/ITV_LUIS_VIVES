@@ -1,6 +1,5 @@
 package com.example.itv_citas.services.storage.appointment
 
-import com.example.itv_citas.config.AppConfig
 import com.example.itv_citas.dto.AppointmentDto
 import com.example.itv_citas.errors.AppointmentFileError
 import com.example.itv_citas.mappers.toClass
@@ -15,22 +14,17 @@ import com.github.michaelbull.result.mapBoth
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import mu.KotlinLogging
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 import java.io.File
 import java.lang.Exception
 
 private val logger = KotlinLogging.logger {}
 
-class AppointmentJsonStorage: AppointmentStorageService, KoinComponent {
-    private val appConfig by inject<AppConfig>()
+class AppointmentJsonStorage: AppointmentStorageService {
+    private val fileName = File.separator + "appointments.json"
 
-    // Por ahora, luego hay que hacer para pasar la ruta de donde se quiera exportar/importar
-    private val localPath = "${appConfig.appData}${File.separator}appointment.json"
-
-    override fun save(element: Appointment): Result<Appointment, AppointmentFileError> {
+    override fun save(element: Appointment, filePath: String): Result<Appointment, AppointmentFileError> {
         logger.debug { "AppointmentJsonStorage ->\tsave" }
-        val file = File(localPath)
+        val file = File(filePath + fileName)
         return file.validate(FileAction.WRITE).mapBoth(
             success = {
                 return try {
@@ -48,9 +42,9 @@ class AppointmentJsonStorage: AppointmentStorageService, KoinComponent {
         )
     }
 
-    override fun saveAll(elements: List<Appointment>): Result<List<Appointment>, AppointmentFileError> {
+    override fun saveAll(elements: List<Appointment>, filePath: String): Result<List<Appointment>, AppointmentFileError> {
         logger.debug { "AppointmentJsonStorage ->\tsaveAll" }
-        val file = File(localPath)
+        val file = File(filePath + fileName)
         return file.validate(FileAction.WRITE).mapBoth(
             success = {
                 return try {
@@ -68,9 +62,9 @@ class AppointmentJsonStorage: AppointmentStorageService, KoinComponent {
         )
     }
 
-    override fun loadAll(): Result<List<Appointment>, AppointmentFileError> {
+    override fun loadAll(filePath: String): Result<List<Appointment>, AppointmentFileError> {
         logger.debug { "AppointmentJsonStorage ->\tloadAll" }
-        val file = File(localPath)
+        val file = File(filePath)
         return file.validate(FileAction.READ).mapBoth(
             success = {
                 val gson = GsonBuilder().setPrettyPrinting().create()

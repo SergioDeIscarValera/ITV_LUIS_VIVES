@@ -1,11 +1,9 @@
 package com.example.itv_citas.services.storage.employee
 
-import com.example.itv_citas.config.AppConfig
 import com.example.itv_citas.dto.EmployeeDto
 import com.example.itv_citas.dto.SpecialtyDto
 import com.example.itv_citas.errors.EmployeeError
 import com.example.itv_citas.mappers.toClass
-import com.example.itv_citas.mappers.toDto
 import com.example.itv_citas.models.Employee
 import com.example.itv_citas.validators.FileAction
 import com.example.itv_citas.validators.validate
@@ -14,30 +12,28 @@ import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.mapBoth
 import mu.KotlinLogging
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 import java.io.File
 
 private val logger = KotlinLogging.logger {}
 
-class EmployeeCsvStorage: EmployeeStorageService, KoinComponent {
-    private val appConfig by inject<AppConfig>()
+class EmployeeCsvStorage: EmployeeStorageService {
+    private val fileName = File.separator + "employees.csv"
 
-    // Por ahora, luego hay que hacer para pasar la ruta de donde se quiera exportar/importar
-    private val localPath = "${appConfig.appData}${File.separator}employee.csv"
+    private val header =
+        "id,name,email,userName,phone,password,specialtyNombre,specialtySalario,idStation,idResponsable\n"
 
-    override fun save(element: Employee): Result<Employee, EmployeeError> {
+    override fun save(element: Employee, filePath: String): Result<Employee, EmployeeError> {
         logger.debug { "EmployeeCsvStorage ->\tsave" }
-        val file = File(localPath)
+        val file = File(filePath + fileName)
         return file.validate(FileAction.WRITE).mapBoth(
             success = {
                 return try {
-                    file.writeText("id,name,email,userName,phone,password,specialtyNombre,specialtySalario,idStation,idResponsable\n")
+                    file.writeText(header)
                     file.appendText(
-                        employeeToCsv(element.toDto())
+                        element.toCsvRow()
                     )
                     Ok(element)
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     Err(EmployeeError.ExportError("CSV"))
                 }
             },
@@ -47,18 +43,20 @@ class EmployeeCsvStorage: EmployeeStorageService, KoinComponent {
         )
     }
 
-    override fun saveAll(elements: List<Employee>): Result<List<Employee>, EmployeeError> {
+    override fun saveAll(elements: List<Employee>, filePath: String): Result<List<Employee>, EmployeeError> {
         logger.debug { "EmployeeCsvStorage ->\tsaveAll" }
-        val file = File(localPath)
+        val file = File(filePath + fileName)
         return file.validate(FileAction.WRITE).mapBoth(
             success = {
                 return try {
-                    file.writeText("id,name,email,userName,phone,password,specialtyNombre,specialtySalario,idStation,idResponsable\n")
-                    file.appendText(
-                        elements.joinToString { employeeToCsv(it.toDto()) }
-                    )
+                    file.writeText(header)
+                    elements.forEach {
+                        file.appendText(
+                            it.toCsvRow()
+                        )
+                    }
                     Ok(elements)
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     Err(EmployeeError.ExportError("CSV"))
                 }
             },
@@ -68,13 +66,9 @@ class EmployeeCsvStorage: EmployeeStorageService, KoinComponent {
         )
     }
 
-    private fun employeeToCsv(employee: EmployeeDto): String {
-        return "${employee.id},${employee.name},${employee.email},${employee.userName},${employee.phone},${employee.password},${employee.specialty.nombre};${employee.specialty.salario},${employee.idStation},${employee.idResponsable}\n"
-    }
-
-    override fun loadAll(): Result<List<Employee>, EmployeeError> {
+    override fun loadAll(filePath: String): Result<List<Employee>, EmployeeError> {
         logger.debug { "EmployeeCsvStorage ->\tloadAll" }
-        val file = File(localPath)
+        val file = File(filePath)
         return file.validate(FileAction.READ).mapBoth(
             success = {
                 try {
@@ -91,15 +85,15 @@ class EmployeeCsvStorage: EmployeeStorageService, KoinComponent {
                                     celda[4],
                                     celda[5],
                                     SpecialtyDto(
-                                        celda[6].split(";")[0],
-                                        celda[6].split(";")[1]
+                                        celda[6],
+                                        celda[7]
                                     ),
-                                    celda[7],
-                                    celda[8]
+                                    celda[8],
+                                    celda[9]
                                 ).toClass()
                             }
                     )
-                }catch (e: Exception) {
+                } catch (e: Exception) {
                     Err(EmployeeError.ImportError("CSV"))
                 }
             },
@@ -108,4 +102,8 @@ class EmployeeCsvStorage: EmployeeStorageService, KoinComponent {
             }
         )
     }
+}
+
+fun Employee.toCsvRow(): String {
+    return "${this.id},${this.name},${this.email},${this.userName},${this.phone},${this.password},${this.specialty.nombre},${this.specialty.salario},${this.idEstacion},${this.idResponsable}\n"
 }

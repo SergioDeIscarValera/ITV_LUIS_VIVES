@@ -15,6 +15,7 @@ import com.example.itv_citas.services.storage.employee.EmployeeStorageService
 import com.example.itv_citas.services.storage.report.ReportHtmlStorage
 import com.example.itv_citas.services.storage.report.ReportJsonStorage
 import com.example.itv_citas.services.storage.report.ReportStorageService
+import com.example.itv_citas.viewmodels.CitaViewModel
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 import org.koin.core.qualifier.named
@@ -23,6 +24,7 @@ import org.koin.dsl.bind
 // Uso esta sintaxis para enlazar las implementaciones con las interfaces y así ser más escalable
 val AppDiModule = module {
     singleOf(::AppConfig)
+    singleOf(::CitaViewModel)
 
     //region Repositorios
     single(named("AppointmentBBDD")) { AppointmentRepositoryDataBase() } bind AppointmentRepository::class
