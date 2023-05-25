@@ -51,12 +51,14 @@ dependencies {
   // Koin
   implementation("io.insert-koin:koin-core:3.4.0")
   implementation("io.insert-koin:koin-logger-slf4j:3.4.0")
+  // Koin Test
+  implementation("io.insert-koin:koin-test:3.4.0")
 
   //MyBatis
   implementation("org.mybatis:mybatis:3.5.11")
 
   //MySql
-  implementation("mysql:mysql-connector-java:5.1.6")
+  implementation("mysql:mysql-connector-java:8.0.28")
 
   // Gson
   implementation("com.google.code.gson:gson:2.10.1")
@@ -64,12 +66,18 @@ dependencies {
   // Jsoup
   implementation("org.jsoup:jsoup:1.15.3")
 
+  // Mockito
+  testImplementation("org.mockito:mockito-core:5.3.1")
+  testImplementation("org.mockito:mockito-junit-jupiter:5.3.1")
+  testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
 test {
-  useJUnitPlatform()  }
+  useJUnitPlatform()
+}
 
 jlink {
   imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")

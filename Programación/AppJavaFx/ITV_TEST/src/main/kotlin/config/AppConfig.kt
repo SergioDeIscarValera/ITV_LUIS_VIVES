@@ -1,4 +1,4 @@
-package com.example.itv_citas.config
+package config
 
 import mu.KotlinLogging
 import java.io.File

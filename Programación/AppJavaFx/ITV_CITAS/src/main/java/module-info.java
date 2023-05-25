@@ -26,6 +26,9 @@ module com.example.itv_citas {
     // Jsoup
     requires org.jsoup;
 
+    // Test
+    requires kotlin.test;
+
     opens com.example.itv_citas to javafx.fxml;
     exports com.example.itv_citas;
 

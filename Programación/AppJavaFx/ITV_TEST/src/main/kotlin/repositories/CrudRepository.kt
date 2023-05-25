@@ -1,4 +1,4 @@
-package com.example.itv_citas.repositories
+package repositories
 
 import com.github.michaelbull.result.Result
 
