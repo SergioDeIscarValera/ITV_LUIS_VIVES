@@ -8,10 +8,28 @@ nav {
     justify-content: space-around;
 }
 
+nav div, nav ul{
+    width: calc(100%/3);
+    height: 100%;
+}
+
+header .header_color{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 2rem;
+}
+
+header .header_logo{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 2rem;
+}
+
 nav ul {
     margin: 0;
     padding: 0;
-    width: 40%;
     list-style: none;
     display: flex;
     align-items: start;
@@ -24,11 +42,13 @@ nav a {
     color: var(--light);
     text-decoration: none;
     font-size: 1.5rem;
+    transition: all ease-in-out 200ms;
 }
 
 nav a:hover {
     background-color:  var(--secondary);
     color: var(--light);
+    border-radius: 1rem;
 }
 
 nav #logoIzquierda{

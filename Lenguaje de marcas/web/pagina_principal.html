@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/general/general.css">
     <link rel="stylesheet" href="css/botonesFlotantes/botones-flotantes.css">
     <link rel="stylesheet" href="css/nav/nav.css">
+    <link rel="stylesheet" href="css/footer/footer.css">
 
     <link rel="stylesheet" href="css/home/home.css">
 
@@ -41,7 +42,7 @@
 <body>
     <header>
         <nav>
-            <div>
+            <div class="header_logo">
                 <img id="logoIzquierda" src="img/logoClaro.png">
             </div>
             <ul>
@@ -49,7 +50,7 @@
                 <li><a href="pagina-info.html">Info</a></li>
                 <li><a href="pagina-cita.html">Cita</a></li>
             </ul>
-            <div>
+            <div class="header_color">
                 <button onclick="cambiarModo()">
                     <img class="color_button botonLuna" src="img/luna.png">
                     <img class="color_button botonSol" src="img/sol.png">
@@ -135,7 +136,7 @@
             </div>
         </div>
 
-
+        <!-- Botones flotantes -->
         <div class="floating-buttons">
             <a href="#">
                 <img src="img/instagram.png">
@@ -155,5 +156,36 @@
         </div>
     </div>
     <!-- Footer -->
+    <footer>
+        <div class="footer_rrss">
+            <ul>
+                <li><a href="#"><img src="img/instagram.png"></a></li>
+                <li><a href="#"><img src="img/twitter.png"></a></li>
+                <li><a href="#"><img src="img/whatsapp.png"></a></li>
+                <li><a href="#"><img src="img/facebook.png"></a></li>
+                <li><a href="#"><img src="img/tiktok.png"></a></li>
+            </ul>
+        </div>
+        <div class="footer_contacto">
+            <h3>Contacto:</h3>
+            <div class="footer_contacto_contenido">
+                <div>
+                    <label>Dirección:</label>
+                    <p>Camiño Daniel, 047, 3º 6º</p>
+                </div>
+                <div>
+                    <label>Teléfono:</label>
+                    <p>699999999</p>
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <p>itvinspecionamostuchoche@example.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-legal">
+            <p>Todos los derechos reservados &copy; 2023</p>
+        </div>
+    </footer>
 </body>
 </html>

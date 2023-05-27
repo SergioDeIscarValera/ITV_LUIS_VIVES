@@ -24,6 +24,10 @@ h2 {
 }
 
 p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    text-align: justify;
     color: var(--dark);
 }
 
