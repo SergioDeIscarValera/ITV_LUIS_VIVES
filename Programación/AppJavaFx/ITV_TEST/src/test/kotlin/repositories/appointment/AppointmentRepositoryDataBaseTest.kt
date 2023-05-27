@@ -6,6 +6,7 @@ import models.Appointment
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError
 import config.AppConfig
+import default_values.DefaultValueAppointment.defaultValueAppointment
 import org.apache.ibatis.jdbc.ScriptRunner
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -32,11 +33,7 @@ class AppointmentRepositoryDataBaseTest: AppointmentRepositoryTest {
 
     private val repository = AppointmentRepositoryDataBase()
 
-    private val appointmentsDefaultDataBase = listOf(
-        Appointment(2, "2385KLP", LocalDateTime.parse("2023-06-01T08:49:04")),
-        Appointment(3, "5421GVJ", LocalDateTime.parse("2023-06-06T14:45:51")),
-        Appointment(4, "8796QWT", LocalDateTime.parse("2023-06-23T12:14:52")),
-    )
+    private val appointmentsDefaultDataBase = defaultValueAppointment()
 
     @BeforeEach
     fun tearDown(){
