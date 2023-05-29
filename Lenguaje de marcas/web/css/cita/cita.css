@@ -1,4 +1,4 @@
-.title_container{
+.title_container {
     margin: 6rem 0 1rem 0;
     display: flex;
 }
@@ -6,10 +6,11 @@
 .imagen_usuario {
     height: 100px;
     width: auto;
+    margin-left: 5rem;
 }
 
 form {
-    width: 40%;
+    width: 50%;
     background-color: var(--secondary);
     border: 1px solid transparent;
     border-radius: 10px;
@@ -21,12 +22,13 @@ form {
 }
 
 form input, form select{
-    width: 15rem;
-    height: 1.5rem;
+    width: 22rem;
+    height: 2rem;
     border: none;
     border-radius: 1rem;
     padding: 0 0 0 0.5rem;
     transition: all ease-in-out 200ms;
+    font-size: 1rem;
 }
 
 form input:hover, form select:hover {
@@ -45,29 +47,51 @@ form .row {
     align-items: center;
 }
 
-form button{
-    border: none;
+form button {
+    width: 8rem;
+    border-color: transparent;
     border-radius: 1rem;
     font-size: 1rem;
     padding: 1rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+form .row_buttons {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 form label{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--drak);
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .enviar_button {
+    background-color: #efc2c4;
+    transition: all ease-in-out 200ms;
+}
+
+.enviar_button:hover {
     background-color: var(--success);
 }
 
 .reset_button {
+    background-color: #efc2c4;
+    transition: all ease-in-out 200ms;
+    margin-right: 1rem;
+}
+
+.reset_button:hover {
     background-color: var(--danger);
 }
 
 .codigo_barras {
     height: 8rem;
     width: auto;
+    margin-right: 10rem;
+    margin-top: 2rem;
 }

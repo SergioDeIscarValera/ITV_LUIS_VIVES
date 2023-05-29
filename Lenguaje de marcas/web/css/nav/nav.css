@@ -25,6 +25,7 @@ header .header_logo{
     align-items: center;
     justify-content: start;
     padding-left: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 nav ul {
