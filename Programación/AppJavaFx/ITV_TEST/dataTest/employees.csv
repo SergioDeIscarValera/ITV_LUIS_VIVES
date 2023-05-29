@@ -1,0 +1,4 @@
+id,name,email,userName,phone,password,specialtyNombre,specialtySalario,idStation,idResponsable
+1,Sonia,soniagomez@gmail.com,soniagomez,625874952,,ADMINISTRACION,1650,1,1
+2,Pablo,pablomesas@hotmail.com,pablomesas,652256984,,ELECTRICIDAD,1800,1,1
+3,Rocio,rociofuente@gmail.com,rociofuente,696658974,,MOTOR,1700,1,1

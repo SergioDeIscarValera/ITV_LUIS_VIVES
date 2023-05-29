@@ -4,7 +4,6 @@ import config.AppConfig
 import services.database.DataBaseManager
 import services.storage.appointment.AppointmentJsonStorage
 import com.example.itv_citas.services.storage.appointment.AppointmentStorageService
-import com.example.itv_citas.services.storage.employee.EmployeeCsvStorage
 import com.example.itv_citas.services.storage.employee.EmployeeStorageService
 import com.example.itv_citas.services.storage.report.ReportHtmlStorage
 import com.example.itv_citas.services.storage.report.ReportJsonStorage
@@ -25,6 +24,7 @@ import repositories.station.StationRepository
 import repositories.station.StationRepositoryDataBase
 import repositories.vehicle.VehicleRepository
 import repositories.vehicle.VehicleRepositoryDataBase
+import services.storage.employee.EmployeeCsvStorage
 
 // Uso esta sintaxis para enlazar las implementaciones con las interfaces y así ser más escalable
 val AppDiModule = module {
@@ -51,7 +51,7 @@ val AppDiModule = module {
     single(named("EmployeeCSV")) { EmployeeCsvStorage() } bind EmployeeStorageService::class
 
     single(named("ReportJSON")) { ReportJsonStorage() } bind ReportStorageService::class
-    single(named("ReportHTML")) { ReportHtmlStorage() } bind ReportStorageService::class
+//    single(named("ReportHTML")) { ReportHtmlStorage() } bind ReportStorageService::class
     //endregion
 
     //endregion

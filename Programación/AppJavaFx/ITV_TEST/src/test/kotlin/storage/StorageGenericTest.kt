@@ -21,7 +21,7 @@ abstract class StorageGenericTest<T, ERR> {
     @AfterAll
     fun cleanFiles(){
         val file = File(filePath())
-        //if (file.exists()) file.delete()
+//        if (file.exists()) file.delete()
     }
 
     @Test
