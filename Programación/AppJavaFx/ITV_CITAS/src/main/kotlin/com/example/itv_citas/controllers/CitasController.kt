@@ -33,6 +33,8 @@ class CitasController: KoinComponent {
     private lateinit var manuCerrarSesion: MenuItem
     @FXML
     private lateinit var menuSalir: MenuItem
+    @FXML
+    private lateinit var menuAcercaDe: MenuItem
 
     @FXML
     private lateinit var menuExportarCitas: MenuItem
@@ -323,6 +325,12 @@ class CitasController: KoinComponent {
                     }
                 }
             }
+        }
+        menuAcercaDe.setOnAction {
+            RoutesManager.openModal(
+                Views.ACERCA_DE,
+                "Acerca de..."
+            )
         }
         menuExportarCitas.setOnAction {
             choiceDialog(
