@@ -29,6 +29,9 @@ module com.example.itv_citas {
     // Test
     requires kotlin.test;
 
+    // JBCrypt
+    requires jbcrypt;
+
     opens com.example.itv_citas to javafx.fxml;
     exports com.example.itv_citas;
 

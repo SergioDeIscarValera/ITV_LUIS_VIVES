@@ -29,7 +29,6 @@ val AppDiModule = module {
     singleOf(::GestionCitaViewModel)
     singleOf(::CitaViewModel)
     singleOf(::PrincipalViewModel)
-    singleOf(::ForgotPasswordModel)
 
     //region Repositorios
     single(named("AppointmentBBDD")) { AppointmentRepositoryDataBase() } bind AppointmentRepository::class

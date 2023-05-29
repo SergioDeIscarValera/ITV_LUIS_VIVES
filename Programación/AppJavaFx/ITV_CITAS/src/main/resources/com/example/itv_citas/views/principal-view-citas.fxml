@@ -65,7 +65,7 @@
                   <Cursor fx:constant="NONE" />
                </cursor>
             </ImageView>
-            <Button fx:id="password_button" accessibleRole="IMAGE_VIEW" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" styleClass="password_button" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="password_button" accessibleRole="IMAGE_VIEW" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" styleClass="password_button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

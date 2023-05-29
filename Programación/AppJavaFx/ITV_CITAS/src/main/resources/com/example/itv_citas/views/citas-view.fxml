@@ -30,9 +30,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="Menú">
             <items>
+                  <MenuItem fx:id="menuAcercaDe" mnemonicParsing="false" text="Acerca de..." />
                   <MenuItem fx:id="manuCerrarSesion" mnemonicParsing="false" text="Cerrar sesion" />
                   <MenuItem fx:id="menuSalir" mnemonicParsing="false" text="Salir" />
-                  <MenuItem fx:id="menuAcercaDe" mnemonicParsing="false" text="Acerca de..." />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Ficheros">

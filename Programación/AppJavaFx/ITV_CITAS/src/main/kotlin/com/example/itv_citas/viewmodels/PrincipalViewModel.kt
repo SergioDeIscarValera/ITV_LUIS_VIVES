@@ -1,65 +1,73 @@
 package com.example.itv_citas.viewmodels
 
-
+import com.example.itv_citas.errors.EmployeeError
+import com.example.itv_citas.models.Employee
 import com.example.itv_citas.repositories.employee.EmployeeRepository
 import com.example.itv_citas.route.RoutesManager
+import com.example.itv_citas.route.RoutesManager.changeScene
+import com.example.itv_citas.route.RoutesManager.showErrorAlert
 import com.example.itv_citas.states.PrincipalState
-import com.github.michaelbull.result.get
-import com.github.michaelbull.result.mapBoth
+import com.example.javafxdemo.routes.Views
+import com.github.michaelbull.result.*
 import javafx.beans.property.ObjectProperty
 import javafx.beans.property.SimpleObjectProperty
 import javafx.scene.control.TextField
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.qualifier.named
-
+import org.mindrot.jbcrypt.BCrypt
 
 class PrincipalViewModel: KoinComponent {
 
     private val repository by inject<EmployeeRepository>(named("EmployeeBBDD"))
     val state: ObjectProperty<PrincipalState> = SimpleObjectProperty(PrincipalState())
 
-
-
-    private var textOriginal =""
-
-//    fun checkPassword(password: String):Boolean{
-//
-//        val isPasswordCorrect = BCrypt.checkpw( password,repository.findByUser(state.value.usuario).get()!!.password)
-//
-//       return isPasswordCorrect
-//
-//    }
-
-    fun checkPassword(password: String):Boolean{
-        return (password==repository.findByUser(state.value.usuario).get()!!.password)
+    fun hidePassword(): String {
+        val stringBuilder = StringBuilder()
+        repeat(state.value.password.length) {
+            stringBuilder.append("*")
+        }
+        return stringBuilder.toString()
     }
 
-    fun hidePassword(correoField: TextField): String {
-        textOriginal = state.value.password
-        return "*".repeat(textOriginal.length)
-    }
+    fun checkCredentials(){
 
-
-
-
-
-    fun checkCredentials():Boolean{
-        var correct = false
-        repository.findByUser(state.value.usuario).mapBoth(
-            success = {
-                if (checkPassword(state.value.password)){
-                    correct= true
-                }else{
-
-                    RoutesManager.showErrorAlert("Credenciales no Validas","La contraseña introducida no es válida.")
+        repository.findByUser(state.value.usuario)
+            .andThen { checkPassword(state.value.password, it.password) }
+            .mapBoth(
+                success = {
+                    changeScene(Views.HOME, "ITV Cita")
+                },
+                failure = {
+                    when(it){
+                        is EmployeeError.InvalidPassword -> {
+                            showErrorAlert("Error", "Password is not correct")
+                        }
+                        is EmployeeError.EmployeeNotFound -> {
+                            showErrorAlert("Error", "Employee not found")
+                        }
+                        is EmployeeError.UserNotFound -> {
+                            showErrorAlert("Error", "User not found")
+                        }
+                        else -> {
+                            showErrorAlert("Error", "Error desconocido")
+                        }
+                    }
                 }
-            },
-            failure = {
-                RoutesManager.showErrorAlert("Credenciales no Validas","El usuario introducido no es válido.")
-            }
+            )
+    }
 
-        )
-            return correct
+    // El driver ya se encarga del desencriptado...
+    /*private fun checkPassword(password: String, passwordHashed: String): Result<Employee, EmployeeError>{
+        return when{
+            !BCrypt.checkpw(password, passwordHashed) -> Err(EmployeeError.InvalidPassword)
+            else -> Ok(repository.findByUser(state.value.usuario).get()!!)
+        }
+    }*/
+    private fun checkPassword(password: String, passwordHashed: String): Result<Employee, EmployeeError>{
+        return when{
+            password != passwordHashed -> Err(EmployeeError.InvalidPassword)
+            else -> Ok(repository.findByUser(state.value.usuario).get()!!)
         }
     }
+}
