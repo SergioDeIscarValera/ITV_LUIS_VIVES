@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/general/general.css">
+        <link rel="stylesheet" href="css/botonesFlotantes/botones-flotantes.css">
+        <link rel="stylesheet" href="css/nav/nav.css">
+        <link rel="stylesheet" href="css/footer/footer.css">
+    
+        <link rel="stylesheet" href="css/info/info.css">
+    
+        <link id="general" rel="stylesheet" href="css/general/general-light.css">
+        <link id="info" rel="stylesheet" href="css/info/info-light.css">
+        <link id="nav" rel="stylesheet" href="css/nav/nav-light.css">
+
+        <title>Descubre más</title>
+        <link rel="icon" type="image/png" href="img/logoClaro.png">
+
+        <script src="js/changeBackground.js"></script>
+        <script>
+            let flag = false;
+            function cambiarModo() {
+                let newStyle = "";
+                
+                if(flag){
+                    newStyle = "light";
+                }else{
+                    newStyle = "dark";
+                }
+
+                setHref("general", newStyle);
+                setHref("info", newStyle);
+                setHref("nav", newStyle);
+
+                flag = !flag;
+            };
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="header_logo">
+                    <img id="logoIzquierda" src="img/logoSinEslogan.png">
+                </div>
+                <ul>
+                    <li><a href="pagina_principal.html">Home</a></li>
+                    <li><a href="#">Info</a></li>
+                    <li><a href="pagina-cita.html">Cita</a></li>
+                </ul>
+                <div class="header_color">
+                    <button onclick="cambiarModo()">
+                        <img class="color_button botonLuna" src="img/luna.png">
+                        <img class="color_button botonSol" src="img/sol.png">
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <div class="dupla">
+                <h1>Información:</h1>
+                <img class="imgAsist" src="img/Sac.jpg">
+                <p>
+                    Nuestras oficinas cuentan con una gran variedad de horarios. ¿Estás falto de tiempo y no puedes realizar una llamada a horas donde el resto de empresas
+                    están cerradas? ¡No te preocupes! En Inspeccionamos tu Coche S.A contamos con servicio al cliente 24h. Estás a una llamada de resolver tus problemas, 
+                    que mas hay que pensar. 
+                </p>
+            </div>
+     
+            <div class="dupla">
+                <h2>Horarios:</h2>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Lunes-Sábado</th>
+                        <th>Domingos y festivos</th>
+                    </tr>
+                    <tr>
+                        <td>Mañanas</td>
+                        <td class="innerCell">8:00-13:30</td>
+                        <td class="innerCell">8:00-14:00</td>
+                    </tr>
+                    <tr>
+                        <td>Tardes</td>
+                        <td class="innerCell">16:00-20:00</td>
+                        <td class="innerCell">-------</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="dupla">
+                <h2>Contáctenos:</h2>
+                <p>
+                    Llame al <b>915 283 700</b>. Disponible 24 horas, los 365 días del año.<br>
+                    Escriba un email al siguiente correo: <b>InspeccionamosTuCoche@gmail.com</b>.
+                    <br><br>
+                    Estaremos encantados de echarte una mano, tu felicidad es nuestra satisfacción.
+                </p>
+            </div>
+        </div>
+
+        <div class="floating-buttons">
+            <a href="#">
+                <img src="img/instagram.png">
+            </a>
+            <a href="#">
+                <img src="img/twitter.png">
+            </a>
+            <a href="#">
+                <img src="img/whatsapp.png">
+            </a>
+            <a href="#">
+                <img src="img/facebook.png">
+            </a>
+            <a href="#">
+                <img src="img/tiktok.png">
+            </a>
+        </div>
+        <!-- Footer -->
+        <footer>
+            <div class="footer_rrss">
+                <ul>
+                    <li><a href="#"><img src="img/instagram.png"></a></li>
+                    <li><a href="#"><img src="img/twitter.png"></a></li>
+                    <li><a href="#"><img src="img/whatsapp.png"></a></li>
+                    <li><a href="#"><img src="img/facebook.png"></a></li>
+                    <li><a href="#"><img src="img/tiktok.png"></a></li>
+                </ul>
+            </div>
+            <div class="footer_contacto">
+                <h3>Contacto:</h3>
+                <div class="footer_contacto_contenido">
+                    <div>
+                        <label>Dirección:</label>
+                        <p>Camiño Daniel, 047, 3º 6º</p>
+                    </div>
+                    <div>
+                        <label>Teléfono:</label>
+                        <p>699999999</p>
+                    </div>
+                    <div>
+                        <label>Email:</label>
+                        <p>itvinspecionamostuchoche@example.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>Todos los derechos reservados &copy; 2023</p>
+            </div>
+        </footer>
+    </body>
+</html>
