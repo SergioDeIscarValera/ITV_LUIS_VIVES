@@ -1,7 +1,7 @@
 USE itvluisvives;
-DROP table if exists tcitas;
-DROP table if exists tvehiculo;
-DROP TABLE if exists tpropietario;
-DROP TABLE if exists ttrabajadores;
-DROP TABLE if exists tespecialidad;
+DROP table if exists tCitas;
+DROP table if exists tVehiculo;
+DROP TABLE if exists tPropietario;
+DROP TABLE if exists tTrabajadores;
+DROP TABLE if exists tEspecialidad;
 DROP TABLE if exists tEstacion;

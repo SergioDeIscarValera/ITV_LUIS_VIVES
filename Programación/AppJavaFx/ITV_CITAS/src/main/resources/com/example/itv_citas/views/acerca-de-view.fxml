@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="234.0" prefWidth="418.0" spacing="30.0" style="-fx-background-color: #D2FFF2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane prefHeight="234.0" prefWidth="216.0">
@@ -33,17 +32,17 @@
                   <Font name="Century Gothic" size="15.0" />
                </font>
             </Label>
-            <TextField style="-fx-background-color: 0; -fx-border-radius: 20; -fx-border-width: 2; -fx-border-color: #F0B4B6;" text="Víctor Domínguez Gómez Limón" GridPane.rowIndex="1">
+            <TextField style="-fx-background-color: transparent; -fx-border-radius: 20; -fx-border-width: 2; -fx-border-color: #F0B4B6;" text="Víctor Domínguez Gómez Limón" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </TextField>
-            <TextField style="-fx-background-color: 0; -fx-border-color: #F0B4B6; -fx-border-radius: 20; -fx-border-width: 2;" text="Sergio de Iscar Valera" GridPane.rowIndex="2">
+            <TextField style="-fx-background-color: transparent; -fx-border-color: #F0B4B6; -fx-border-radius: 20; -fx-border-width: 2;" text="Sergio de Iscar Valera" GridPane.rowIndex="2">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </TextField>
-            <TextField style="-fx-background-color: 0; -fx-border-color: #F0B4B6; -fx-border-radius: 20; -fx-border-width: 2;" text="Daniel Paz Rincón" GridPane.rowIndex="3">
+            <TextField style="-fx-background-color: transparent; -fx-border-color: #F0B4B6; -fx-border-radius: 20; -fx-border-width: 2;" text="Daniel Paz Rincón" GridPane.rowIndex="3">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>

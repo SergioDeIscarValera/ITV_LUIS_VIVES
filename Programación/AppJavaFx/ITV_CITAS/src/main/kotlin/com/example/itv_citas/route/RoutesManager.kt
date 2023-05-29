@@ -60,7 +60,9 @@ object RoutesManager {
                 getResourceAsStream(urlIcon)
             )
         )
-        stage.isResizable = false
+
+        stage.isResizable = true//Problemas al cambiar a una scene de mayor tamaño o menor.
+
         stage.show()
     }
 

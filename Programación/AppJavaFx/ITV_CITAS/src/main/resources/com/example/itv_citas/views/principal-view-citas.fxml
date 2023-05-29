@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="background" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="431.0" styleClass="background" stylesheets="@css/principal-view-styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="background" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="431.0" styleClass="background" stylesheets="@css/principal-view-styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.itv_citas.controllers.PrincipalController">
    <children>
       <ImageView fx:id="principal_image" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>

@@ -25,8 +25,8 @@ class MyApplication : Application() {
             "Login"
         )*/
         RoutesManager.changeScene(
-            Views.HOME,
-            "Home"
+            Views.LOGIN,
+            "Inicio de Sesión"
         )
     }
 }
