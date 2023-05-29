@@ -59,7 +59,7 @@
 .spinner .decrement-arrow-button:hover:pressed,
 .spinner .increment-arrow-button:pressed,
 .spinner .decrement-arrow-button:pressed {
-	-fx-background-color: -fx-secondary-color;
+	-fx-background-color: transparent;
 }
 .spinner .increment-arrow-button .increment-arrow,
 .spinner .decrement-arrow-button .decrement-arrow {

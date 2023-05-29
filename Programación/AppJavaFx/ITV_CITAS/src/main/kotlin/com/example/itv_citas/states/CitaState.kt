@@ -6,6 +6,9 @@ data class CitaState(
     val citas: List<Appointment> = listOf(),
     val tipos: List<String> = listOf(),
 
+    val fechaAppointment: String = "",
+    val idTrabajador: String = "",
+
     val matriculaVehicle: String = "",
     val marcaVehicle: String = "",
     val tipoVehicle: String = "",
@@ -19,9 +22,9 @@ data class CitaState(
     val apellidoOwner: String = "",
     val telefonoOwner: String = "",
     val correoOwner: String = "",
-    val typeAction: TypeAction = TypeAction.NEW
+    val typeAction: TypeAction = TypeAction.BASE
 )
 
 enum class TypeAction {
-    NEW, EDIT
+    NEW, EDIT, BASE
 }

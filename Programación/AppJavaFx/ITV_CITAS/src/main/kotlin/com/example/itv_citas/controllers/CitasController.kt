@@ -225,6 +225,9 @@ class CitasController: KoinComponent {
     private fun eventsButton() {
         buttonNuevo.setOnAction {
             viewModel.state.value = viewModel.state.value.copy(
+                typeAction = TypeAction.BASE
+            )
+            viewModel.state.value = viewModel.state.value.copy(
                 typeAction = TypeAction.NEW
             )
             RoutesManager.openModal(

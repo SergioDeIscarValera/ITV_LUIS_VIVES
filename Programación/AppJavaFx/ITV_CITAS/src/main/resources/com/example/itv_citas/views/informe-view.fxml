@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="363.0" spacing="20.0" styleClass="background" stylesheets="@css/informe-view-styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="363.0" spacing="20.0" styleClass="background" stylesheets="@css/informe-view-styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.itv_citas.controllers.FormularioController">
    <children>
       <HBox alignment="CENTER" prefHeight="69.0" prefWidth="500.0" spacing="50.0">
          <children>
@@ -56,34 +56,34 @@
             <Label styleClass="labels" text="Interior" GridPane.rowIndex="6" />
             <Label styleClass="labels" text="Luces" GridPane.rowIndex="7" />
             <Label styleClass="labels" text="APTO" GridPane.rowIndex="8" />
-            <TextField editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="textVehiculo" editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textPropietario" editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="textTrabajador" editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label styleClass="labels" text="Fecha" />
-            <TextField editable="false" styleClass="fields" GridPane.columnIndex="1" />
-            <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextField fx:id="textFecha" editable="false" styleClass="fields" GridPane.columnIndex="1" />
+            <CheckBox fx:id="checkBoxInterior" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <CheckBox fx:id="checkBoxLuces" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <CheckBox fx:id="checkBoxApto" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
             </CheckBox>
-            <Spinner prefHeight="26.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Spinner prefHeight="26.0" prefWidth="253.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Spinner fx:id="spinnerFrenado" prefHeight="26.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Spinner fx:id="spinnerContaminacion" prefHeight="26.0" prefWidth="253.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
          <padding>
             <Insets left="20.0" right="20.0" />
          </padding>
       </GridPane>
-      <Button mnemonicParsing="false">
+      <Button fx:id="buttonGuardar" mnemonicParsing="false">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>

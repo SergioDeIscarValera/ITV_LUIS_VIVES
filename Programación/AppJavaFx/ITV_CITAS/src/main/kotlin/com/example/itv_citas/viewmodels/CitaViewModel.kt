@@ -163,6 +163,9 @@ class CitaViewModel: KoinComponent {
         }.get()!!
 
         state.value = state.value.copy(
+            fechaAppointment = it.date.toString(),
+            idTrabajador = it.idEmployee.toString(),
+
             matriculaVehicle = vehicle.carNumber,
             marcaVehicle = vehicle.brand,
             tipoVehicle = vehicle.type.value,

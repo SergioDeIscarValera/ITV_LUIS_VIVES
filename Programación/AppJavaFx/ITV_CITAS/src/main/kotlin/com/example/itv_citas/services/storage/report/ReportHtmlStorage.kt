@@ -37,6 +37,7 @@ class ReportHtmlStorage: ReportStorageService, KoinComponent {
                 try {
                     val doc = Document.createShell("")
                     val table = doc.createElement("table")
+                    table.attr("border", "1")
                     table.append("<tr><th>ID</th><th>Favorable</th><th>Braking</th><th>Pollution</th><th>Inside</th><th>Lights</th><th>Employee ID</th><th>Employee Name</th><th>Vehicle Car Number</th><th>Brand</th><th>Model</th><th>Owner DNI</th><th>Owner Name</th><th>Owner Phone</th></tr>")
                     addRowPerReport(element, table)
                     doc.body().appendChild(table)
