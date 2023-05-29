@@ -5,5 +5,8 @@ sealed class AppointmentError(val message: String) {
     object AppointmentNotCreated : AppointmentError("Error Appointment not created")
     object AppointmentNotUpdated : AppointmentError("Error Appointment not updated")
     object AppointmentNotDeleted : AppointmentError("Error Appointment not deleted")
-    object AppointmentNotValid: AppointmentError("Error Appointment not valid")
+    object AppointmentCarNumberInvalid: AppointmentError("Error Appointment car number invalid")
+    object AppointmentDateInvalid: AppointmentError("Error Appointment date invalid")
+    object AppointmentMaxAppointments: AppointmentError("Error Appointment max appointments")
+    object AppointmentMaxAppointmentsEmployee: AppointmentError("Error Appointment max appointments employee")
 }

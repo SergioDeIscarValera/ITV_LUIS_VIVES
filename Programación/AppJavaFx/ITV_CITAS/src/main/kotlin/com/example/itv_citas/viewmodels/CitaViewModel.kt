@@ -50,13 +50,13 @@ class CitaViewModel: KoinComponent {
         )
     }
 
-    private fun updateViewList() {
+    fun updateViewList() {
         state.value = state.value.copy(
             citas = citasRepository.findAll().toList()
         )
     }
 
-    fun chearSelected(){
+    fun clearSelected(){
         state.value = state.value.copy(
             marcaVehicle = "",
             tipoVehicle = "",
@@ -140,7 +140,6 @@ class CitaViewModel: KoinComponent {
                     TypeVehicle.MOTOCICLETA.value -> it.type == TypeVehicle.MOTOCICLETA
                     else -> true
                 }
-            //}.map { it.carNumber }.filter { it.contains(textFilter) }.toList()
             }.map { it.carNumber }.filter { it.startsWith(textFilter, true) }.toList()
 
         state.value = state.value.copy(
@@ -203,7 +202,7 @@ class CitaViewModel: KoinComponent {
             success = {
                 showInfoAlert("Cita eliminada correctamente")
                 updateViewList()
-                chearSelected()
+                clearSelected()
             },
             failure = {
                 showErrorAlert("Error al eliminar la cita", it.message)

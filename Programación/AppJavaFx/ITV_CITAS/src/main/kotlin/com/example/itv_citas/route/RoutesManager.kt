@@ -23,6 +23,7 @@ object RoutesManager {
     private val screenMap = mutableMapOf<Views, Scene>()
     private lateinit var stage: Stage
 
+
     fun setStage(stage: Stage){
         stage.setOnCloseRequest {
             exitAlert()

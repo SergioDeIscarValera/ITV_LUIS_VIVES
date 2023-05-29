@@ -4,20 +4,16 @@ package com.example.itv_citas.viewmodels
 import com.example.itv_citas.dto.ReportDto
 import com.example.itv_citas.mappers.toClass
 import com.example.itv_citas.mappers.toDto
-import com.example.itv_citas.models.Report
 import com.example.itv_citas.repositories.employee.EmployeeRepository
 import com.example.itv_citas.repositories.owner.OwnerRepository
 import com.example.itv_citas.repositories.vehicle.VehicleRepository
 import com.example.itv_citas.route.RoutesManager
 import com.example.itv_citas.route.RoutesManager.showErrorAlert
-import com.example.itv_citas.route.TypeChoose
+import com.example.itv_citas.route.RoutesManager.showInfoAlert
 import com.example.itv_citas.services.storage.report.ReportStorageService
 import com.example.itv_citas.states.FormularioState
-import com.example.itv_citas.validators.validar
-import com.github.michaelbull.result.get
-import com.github.michaelbull.result.mapBoth
-import com.github.michaelbull.result.onFailure
-import com.github.michaelbull.result.onSuccess
+import com.example.itv_citas.validators.validate
+import com.github.michaelbull.result.*
 import javafx.beans.property.ObjectProperty
 import javafx.beans.property.SimpleObjectProperty
 import mu.KotlinLogging
@@ -52,21 +48,23 @@ class FormViewModel: KoinComponent {
         }
     }
 
-    fun guardar(): Boolean {
+    fun validarDatos(): Boolean {
         logger.debug { "FormViewModel -> Guardar informe" }
         val report = generarReport()
-        report.validar().onFailure {
-            showErrorAlert("Los datos no son correctos", it.message)
-            return false
-        }.onSuccess {
-            return true
-        }
-        return false
+        report.validate().mapBoth(
+            success = {
+                showInfoAlert("Los datos se han validado correctamente")
+                return true
+            },
+            failure = {
+                showErrorAlert("Los datos no son correctos", it.message)
+                return false
+            }
+        )
     }
 
     private fun generarReport(): ReportDto {
         return ReportDto(
-            id = "0",
             favorable = state.value.apto.toString(),
             braking = state.value.frenado,
             pollution = state.value.contaminacion,

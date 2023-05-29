@@ -2,7 +2,7 @@ package com.example.itv_citas.controllers
 
 import com.example.itv_citas.models.Appointment
 import com.example.itv_citas.models.enums.TypeVehicle
-import com.example.itv_citas.states.TypeAction
+import com.example.itv_citas.states.TypeActionView
 import com.example.itv_citas.viewmodels.CitaViewModel
 import com.example.itv_citas.route.RoutesManager
 import com.example.itv_citas.route.RoutesManager.choiceDialog
@@ -227,10 +227,7 @@ class CitasController: KoinComponent {
     private fun eventsButton() {
         buttonNuevo.setOnAction {
             viewModel.state.value = viewModel.state.value.copy(
-                typeAction = TypeAction.BASE
-            )
-            viewModel.state.value = viewModel.state.value.copy(
-                typeAction = TypeAction.NEW
+                typeAction = TypeActionView.NEW
             )
             RoutesManager.openModal(
                 Views.FORM_CITAS,
@@ -241,7 +238,7 @@ class CitasController: KoinComponent {
         buttonEditar.setOnAction {
             if (viewModel.state.value.matriculaVehicle.trim().isBlank()) return@setOnAction
             viewModel.state.value = viewModel.state.value.copy(
-                typeAction = TypeAction.EDIT
+                typeAction = TypeActionView.EDIT
             )
             RoutesManager.openModal(
                 Views.FORM_CITAS,
