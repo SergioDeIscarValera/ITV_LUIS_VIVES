@@ -6,7 +6,6 @@ import com.example.itv_citas.states.FormularioState
 import com.example.itv_citas.viewmodels.FormViewModel
 import javafx.fxml.FXML
 import javafx.scene.control.*
-import javafx.stage.Stage
 import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -82,52 +81,37 @@ class FormularioController: KoinComponent {
             formViewModel.state.value = formViewModel.state.value.copy(contaminacion = spinnerContaminacion.value.toString())
         }
         checkBoxInterior.setOnAction {
-            if (checkBoxInterior.isSelected) {
-                formViewModel.state.value = formViewModel.state.value.copy(interior = true)
-            } else {
-                formViewModel.state.value = formViewModel.state.value.copy(interior = false)
-                formViewModel.state.value = formViewModel.state.value.copy(apto = false)
-            }
+            formViewModel.state.value = formViewModel.state.value.copy(interior = checkBoxInterior.isSelected)
+            checkApto()
         }
         checkBoxLuces.setOnAction {
-            if (checkBoxLuces.isSelected) {
-                formViewModel.state.value = formViewModel.state.value.copy(luces = true)
-            } else {
-                formViewModel.state.value = formViewModel.state.value.copy(luces = false)
-                formViewModel.state.value = formViewModel.state.value.copy(apto = false)
-            }
+            formViewModel.state.value = formViewModel.state.value.copy(luces = checkBoxLuces.isSelected)
+            checkApto()
         }
         checkBoxApto.setOnAction {
-            if (checkBoxApto.isSelected) {
-                formViewModel.state.value = formViewModel.state.value.copy(apto = true)
-            } else formViewModel.state.value = formViewModel.state.value.copy(apto = false)
+            formViewModel.state.value = formViewModel.state.value.copy(apto = checkBoxApto.isSelected)
         }
         buttonGuardar.setOnAction {
-            if (formViewModel.guardar()) {
-
-                Alert(Alert.AlertType.INFORMATION).apply {
-                    this.title = "Información"
-                    this.headerText = "Informe completado"
-                    this.contentText = "Los datos se han validado correctamente"
-                }.showAndWait()
-
-                RoutesManager.choiceDialog(
-                    mapOf(
-                        "JSON" to { path -> formViewModel.exportInformeToJson(path) },
-                        "HTML" to { path -> formViewModel.exportarInformeToHtml(path) }
-                    ),
-                    "Exportar cita:",
-                    exportAlertMessage.first,
-                    exportAlertMessage.second,
-                    TypeChoose.FOLDER
-                )
-
-                val stage = buttonGuardar.scene.window
-                if (stage is Stage) {
-                    stage.close()
-                }
-            }
+            if (!formViewModel.validarDatos()) buttonGuardar.scene.window.hide()
+            RoutesManager.choiceDialog(
+                mapOf(
+                    "JSON" to { path -> formViewModel.exportInformeToJson(path) },
+                    "HTML" to { path -> formViewModel.exportarInformeToHtml(path) }
+                ),
+                "Exportar cita:",
+                exportAlertMessage.first,
+                exportAlertMessage.second,
+                TypeChoose.FOLDER
+            )
+            buttonGuardar.scene.window.hide()
         }
+    }
+
+    private fun checkApto(){
+        checkBoxApto.isDisable = !(checkBoxInterior.isSelected && checkBoxLuces.isSelected)
+        if (checkBoxApto.isDisable) formViewModel.state.value = formViewModel.state.value.copy(
+            apto = false
+        )
     }
 
 }

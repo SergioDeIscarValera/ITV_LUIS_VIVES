@@ -22,9 +22,7 @@ data class CitaState(
     val apellidoOwner: String = "",
     val telefonoOwner: String = "",
     val correoOwner: String = "",
-    val typeAction: TypeAction = TypeAction.BASE
+    val typeAction: TypeActionView = TypeActionView.NEUTRAL
 )
 
-enum class TypeAction {
-    NEW, EDIT, BASE
-}
+
