@@ -22,10 +22,11 @@ import org.koin.core.qualifier.named
 
 private val logger = KotlinLogging.logger {}
 
-class ReportHtmlStorage: ReportStorageService, KoinComponent {
-    private val ownerRepository by inject<OwnerRepository>(named("OwnerBBDD"))
-    private val employeeRepository by inject<EmployeeRepository>(named("EmployeeBBDD"))
-    private val vehicleRepository by inject<VehicleRepository>(named("VehicleBBDD"))
+class ReportHtmlStorage(
+    val ownerRepository: OwnerRepository,
+    val employeeRepository: EmployeeRepository,
+    val vehicleRepository: VehicleRepository
+): ReportStorageService {
 
     private val fileName = File.separator + "reports.html"
 
