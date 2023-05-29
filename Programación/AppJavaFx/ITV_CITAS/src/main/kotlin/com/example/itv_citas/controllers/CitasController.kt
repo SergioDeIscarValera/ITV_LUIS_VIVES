@@ -318,7 +318,7 @@ class CitasController: KoinComponent {
                     if (it == ButtonType.OK) {
                         RoutesManager.changeScene(
                             Views.LOGIN,
-                            "Login"
+                            "Inicio de Sesión"
                         )
                     }
                 }

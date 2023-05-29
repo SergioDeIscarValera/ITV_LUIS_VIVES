@@ -7,5 +7,7 @@ import com.github.michaelbull.result.Result
 
 interface EmployeeRepository: SimpleCrud<Employee, Long, EmployeeError>{
     fun saveAll(employees: List<Employee>): Result<List<Employee>, EmployeeError>
-    //val saveAll: (List<Employee>) -> Result<List<Employee>, EmployeeError>
+    fun findByUser(user: String): Result<Employee, EmployeeError>
+    fun findByEmail(email:String):Result<Employee, EmployeeError>
+
 }

@@ -102,6 +102,39 @@ class EmployeeRepositoryDataBase: EmployeeRepository, KoinComponent{
         }
         return if (employee != null) Ok(employee!!) else Err(EmployeeError.EmployeeNotFound)
     }
+    override fun findByUser(user: String): Result<Employee, EmployeeError> {
+        logger.debug { "EmployeeRepositoryDataBAse ->\tfindByUser" }
+
+        var employee:Employee?  = null
+        val sql = """ SELECT * FROM tTrabajadores WHERE cNombreUsuario = ?"""
+
+        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+            stm.setString(1,user)
+            val result = stm.executeQuery()
+
+            if (result.next()){
+                employee= resultToEmployee(result)
+            }
+        }
+        return if (employee!=null) Ok(employee!!) else Err(EmployeeError.UserNotFound)
+    }
+
+    override fun findByEmail(email: String): Result<Employee, EmployeeError> {
+        logger.debug { "EmployeeRepositoryDataBAse ->\tfindByEmail" }
+
+        var employee:Employee?  = null
+        val sql = """ SELECT * FROM tTrabajadores WHERE cCorreoElectronico = ?"""
+
+        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+            stm.setString(1,email)
+            val result = stm.executeQuery()
+
+            if (result.next()){
+                employee= resultToEmployee(result)
+            }
+        }
+        return if (employee!=null) Ok(employee!!) else Err(EmployeeError.UserNotFound)
+    }
 
     private fun resultToEmployee(result: ResultSet) = Employee(
         result.getLong("nId_Trabajador"),

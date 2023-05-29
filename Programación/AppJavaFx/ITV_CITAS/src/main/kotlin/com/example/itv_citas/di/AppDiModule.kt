@@ -15,9 +15,7 @@ import com.example.itv_citas.services.storage.employee.EmployeeStorageService
 import com.example.itv_citas.services.storage.report.ReportHtmlStorage
 import com.example.itv_citas.services.storage.report.ReportJsonStorage
 import com.example.itv_citas.services.storage.report.ReportStorageService
-import com.example.itv_citas.viewmodels.CitaViewModel
-import com.example.itv_citas.viewmodels.FormViewModel
-import com.example.itv_citas.viewmodels.GestionCitaViewModel
+import com.example.itv_citas.viewmodels.*
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 import org.koin.core.qualifier.named
@@ -29,6 +27,9 @@ val AppDiModule = module {
     singleOf(::CitaViewModel)
     singleOf(::FormViewModel)
     singleOf(::GestionCitaViewModel)
+    singleOf(::CitaViewModel)
+    singleOf(::PrincipalViewModel)
+    singleOf(::ForgotPasswordModel)
 
     //region Repositorios
     single(named("AppointmentBBDD")) { AppointmentRepositoryDataBase() } bind AppointmentRepository::class
