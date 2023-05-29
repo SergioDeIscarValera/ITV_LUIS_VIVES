@@ -18,10 +18,6 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.4.5")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
 
-    // Koin
-    implementation("io.insert-koin:koin-core:3.4.0")
-    implementation("io.insert-koin:koin-logger-slf4j:3.4.0")
-
     //MyBatis
     implementation("org.mybatis:mybatis:3.5.11")
 

@@ -1,27 +1,25 @@
 package repositories.station
 
-import errors.StationError
-import models.Station
-import services.database.DataBaseManager
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.get
+import errors.StationError
+import models.Station
 import mu.KotlinLogging
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import services.database.DataBaseManager
+import services.database.DataBaseManager.dataBase
 import java.sql.ResultSet
 
 private val logger = KotlinLogging.logger {}
 
-class StationRepositoryDataBase: StationRepository, KoinComponent {
-    private val dataBaseManager by inject<DataBaseManager>()
+class StationRepositoryDataBase: StationRepository {
 
     override fun findAll(): Iterable<Station> {
         logger.debug { "StationRepositoryDataBase ->\tfindAll" }
         val stations = mutableListOf<Station>()
         val sql = """SELECT * FROM tEstacion"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
                 stations.add(
@@ -34,9 +32,9 @@ class StationRepositoryDataBase: StationRepository, KoinComponent {
 
     override fun findById(id: Long): Result<Station, StationError> {
         logger.debug { "StationRepositoryDataBase ->\tfindById" }
-        var station: Station? = null
+        var station:Station? = null
         val sql = """SELECT * FROM tEstacion WHERE nId_Estacion = ?"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             stm.setLong(1, id)
             val result = stm.executeQuery()
             while (result.next()){
@@ -46,7 +44,7 @@ class StationRepositoryDataBase: StationRepository, KoinComponent {
         return if (station != null) Ok(station!!) else Err(StationError.StationNotFound)
     }
 
-    private fun resultToStation(result: ResultSet): Station {
+    private fun resultToStation(result: ResultSet): Station{
         return Station(
             result.getLong("nId_Estacion"),
             result.getString("cNombre"),

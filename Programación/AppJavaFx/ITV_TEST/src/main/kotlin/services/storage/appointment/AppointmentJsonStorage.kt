@@ -1,11 +1,5 @@
 package services.storage.appointment
 
-import com.example.itv_citas.services.storage.appointment.AppointmentStorageService
-import dto.AppointmentDto
-import errors.AppointmentFileError
-import mappers.toClass
-import mappers.toDto
-import models.Appointment
 import com.example.itv_citas.validators.FileAction
 import com.example.itv_citas.validators.validate
 import com.github.michaelbull.result.Err
@@ -14,13 +8,18 @@ import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.mapBoth
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import dto.AppointmentDto
+import errors.AppointmentFileError
+import mappers.toClass
+import mappers.toDto
+import models.Appointment
 import mu.KotlinLogging
 import java.io.File
 import java.lang.Exception
 
 private val logger = KotlinLogging.logger {}
 
-class AppointmentJsonStorage: AppointmentStorageService {
+object AppointmentJsonStorage: AppointmentStorageService {
     private val fileName = File.separator + "appointments.json"
 
     override fun save(element: Appointment, filePath: String): Result<Appointment, AppointmentFileError> {

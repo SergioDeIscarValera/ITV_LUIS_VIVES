@@ -1,6 +1,6 @@
 package storage
 
-import com.example.itv_citas.services.storage.StorageService
+import services.storage.StorageService
 import com.example.itv_citas.validators.FileAction
 import com.example.itv_citas.validators.validate
 import com.github.michaelbull.result.get

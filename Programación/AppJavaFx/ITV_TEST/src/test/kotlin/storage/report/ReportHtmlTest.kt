@@ -1,17 +1,14 @@
 package storage.report
 
-import com.example.itv_citas.services.storage.report.ReportHtmlStorage
+import services.storage.report.ReportHtmlStorage
 import com.example.itv_citas.validators.FileAction
 import com.example.itv_citas.validators.validate
-import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.get
-import com.github.michaelbull.result.toResultOr
 import config.AppConfig
 import default_values.DefaultValueEmployee.defaultValueEmployee
 import default_values.DefaultValueOwner.defaultValueOwner
 import default_values.DefaultValueReport.defaultValueReport
-import errors.OwnerError
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -19,7 +16,6 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.junit.jupiter.MockitoExtension
-import org.mockito.kotlin.doThrow
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 import repositories.employee.EmployeeRepositoryDataBase
@@ -44,7 +40,7 @@ class ReportHtmlTest {
     @InjectMocks
     lateinit var storage: ReportHtmlStorage
 
-    private val appConfig = AppConfig()
+    private val appConfig = AppConfig
     private val filePath = "${appConfig.appData}${File.separator}reports.html"
     private val defaultValue = defaultValueReport()
     private val dataPath = appConfig.appData

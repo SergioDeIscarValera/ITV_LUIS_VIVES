@@ -10,11 +10,11 @@ import java.io.File
 
 class EmployeeCsvTest: StorageGenericTest<Employee, EmployeeError>() {
 
-    private val appConfig = AppConfig()
+    private val appConfig = AppConfig
 
     override fun filePath() = "${appConfig.appData}${File.separator}employees.csv"
 
-    override fun getStorage() = EmployeeCsvStorage()
+    override fun getStorage() = EmployeeCsvStorage
 
     override fun getListaDefault() = defaultValueEmployee()
 

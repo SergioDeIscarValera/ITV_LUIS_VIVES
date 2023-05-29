@@ -11,10 +11,10 @@ import java.io.File
 import java.time.LocalDateTime
 
 class AppointmentJsonTest: StorageGenericTest<Appointment, AppointmentFileError>() {
-    private val appConfig = AppConfig()
+    private val appConfig = AppConfig
     override fun filePath() = "${appConfig.appData}${File.separator}appointments.json"
 
-    override fun getStorage() = AppointmentJsonStorage()
+    override fun getStorage() = AppointmentJsonStorage
 
     override fun getListaDefault() = defaultValueAppointment()
 

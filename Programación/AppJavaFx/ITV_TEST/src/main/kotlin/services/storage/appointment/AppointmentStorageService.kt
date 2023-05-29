@@ -1,7 +1,7 @@
-package com.example.itv_citas.services.storage.appointment
+package services.storage.appointment
 
+import services.storage.StorageService
 import errors.AppointmentFileError
 import models.Appointment
-import com.example.itv_citas.services.storage.StorageService
 
 interface AppointmentStorageService: StorageService<Appointment, AppointmentFileError>

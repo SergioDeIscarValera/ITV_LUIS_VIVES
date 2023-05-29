@@ -1,4 +1,4 @@
-package com.example.itv_citas.services.storage
+package services.storage
 
 import com.github.michaelbull.result.Result
 

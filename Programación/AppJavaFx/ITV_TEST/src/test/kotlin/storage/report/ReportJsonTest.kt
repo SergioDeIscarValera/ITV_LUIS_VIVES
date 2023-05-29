@@ -1,6 +1,6 @@
 package storage.report
 
-import com.example.itv_citas.services.storage.report.ReportJsonStorage
+import services.storage.report.ReportJsonStorage
 import config.AppConfig
 import default_values.DefaultValueReport.defaultValueReport
 import errors.ReportError
@@ -10,7 +10,7 @@ import java.io.File
 
 class ReportJsonTest: StorageGenericTest<Report, ReportError>() {
 
-    private val appConfig = AppConfig()
+    private val appConfig = AppConfig
 
     override fun filePath() = "${appConfig.appData}${File.separator}reports.json"
 

@@ -82,14 +82,14 @@
       "idResponsable": "1"
     },
     "vehicle": {
-      "carNumber": "2385KLP",
-      "brand": "Ford",
-      "model": "Transit",
-      "type": "FURGONETA",
-      "motor": "HIBRIDO",
-      "matriculationDate": "2019-08-12",
-      "lastItvDate": "2023-04-15T10:52:02",
-      "dniOwner": "54875241R"
+      "carNumber": "7843FBD",
+      "brand": "Mercedes-Benz",
+      "model": "Actros",
+      "type": "CAMION",
+      "motor": "DIESEL",
+      "matriculationDate": "2016-05-10",
+      "lastItvDate": "2021-11-30T11:44:56",
+      "dniOwner": "51487524T"
     },
     "owner": {
       "ownerDNI": "51487524T",

@@ -1,23 +1,21 @@
 package repositories.appointment
 
-import errors.AppointmentError
-import models.Appointment
-import services.database.DataBaseManager
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.get
+import errors.AppointmentError
+import models.Appointment
 import mu.KotlinLogging
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import services.database.DataBaseManager
+import services.database.DataBaseManager.dataBase
 import java.sql.ResultSet
 import java.sql.Timestamp
 import java.time.LocalDateTime
 
 private val logger = KotlinLogging.logger {}
 
-class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
-    private val dataBaseManager: DataBaseManager by inject()
+class AppointmentRepositoryDataBase: AppointmentRepository {
 
     override fun findByIdEmployee(idEmployee: Long): List<Appointment> {
         logger.debug { "AppointmentRepositoryDataBase ->\tfindByIdEmployee" }
@@ -43,7 +41,7 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
         logger.debug { "AppointmentRepositoryDataBase ->\tfindAll" }
         val appointments = mutableListOf<Appointment>()
         val sql = """SELECT * FROM tCitas"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
                 appointments.add(
@@ -58,7 +56,7 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
         logger.debug { "AppointmentRepositoryDataBase ->\tfindById" }
         var appointment: Appointment? = null
         val sql = """SELECT * FROM tCitas WHERE cMatricula = ?"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             stm.setString(1, id)
             val result = stm.executeQuery()
             if (result.next()){
@@ -87,7 +85,7 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
         logger.debug { "AppointmentRepositoryDataBase ->\tcreate" }
         var result: Int
         val sql = """INSERT INTO tCitas (nId_Trabajador, cMatricula, dFecha_Citacion) VALUES (?, ?, ?)"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             stm.setLong(1, element.idEmployee)
             stm.setString(2, element.carNumber)
             stm.setTimestamp(3, Timestamp.valueOf(element.date))
@@ -100,7 +98,7 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
         logger.debug { "AppointmentRepositoryDataBase ->\tupdate" }
         var result: Int
         val sql = """UPDATE tCitas SET nId_Trabajador = ?, dFecha_Citacion = ? WHERE cMatricula = ?"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             stm.setLong(1, element.idEmployee)
             stm.setTimestamp(2, Timestamp.valueOf(element.date))
             stm.setString(3, element.carNumber)
@@ -118,7 +116,7 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
         logger.debug { "AppointmentRepositoryDataBase ->\tdeleteById" }
         var result: Int
         val sql = """DELETE FROM tCitas WHERE cMatricula = ?"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             stm.setString(1, id)
             result = stm.executeUpdate()
         }
@@ -133,7 +131,7 @@ class AppointmentRepositoryDataBase: AppointmentRepository, KoinComponent {
     override fun deleteAll() {
         logger.debug { "AppointmentRepositoryDataBase ->\tdeleteAll" }
         val sql = """DELETE FROM tCitas"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             stm.executeUpdate()
         }
     }

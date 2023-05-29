@@ -1,7 +1,7 @@
-package com.example.itv_citas.services.storage.employee
+package services.storage.employee
 
+import services.storage.StorageService
 import errors.EmployeeError
 import models.Employee
-import com.example.itv_citas.services.storage.StorageService
 
 interface EmployeeStorageService: StorageService<Employee, EmployeeError>

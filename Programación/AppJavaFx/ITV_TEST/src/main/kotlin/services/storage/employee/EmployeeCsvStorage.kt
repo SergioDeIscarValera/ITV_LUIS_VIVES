@@ -1,7 +1,5 @@
 package services.storage.employee
 
-
-import com.example.itv_citas.services.storage.employee.EmployeeStorageService
 import com.example.itv_citas.validators.FileAction
 import com.example.itv_citas.validators.validate
 import com.github.michaelbull.result.Err
@@ -18,7 +16,7 @@ import java.io.File
 
 private val logger = KotlinLogging.logger {}
 
-class EmployeeCsvStorage: EmployeeStorageService {
+object EmployeeCsvStorage: EmployeeStorageService {
     private val fileName = File.separator + "employees.csv"
 
     private val header =

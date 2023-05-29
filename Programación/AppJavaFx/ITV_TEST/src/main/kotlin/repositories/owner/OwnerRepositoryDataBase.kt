@@ -1,30 +1,28 @@
 package repositories.owner
 
-import errors.OwnerError
-import models.Owner
 import repositories.vehicle.VehicleRepository
-import services.database.DataBaseManager
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.get
+import errors.OwnerError
+import models.Owner
 import mu.KotlinLogging
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
-import org.koin.core.qualifier.named
+import services.database.DataBaseManager
+import services.database.DataBaseManager.dataBase
 import java.sql.ResultSet
 
 private val logger = KotlinLogging.logger {}
 
-class OwnerRepositoryDataBase: OwnerRepository, KoinComponent {
-    private val dataBaseManager by inject<DataBaseManager>()
-    private val vehicleRepository by inject<VehicleRepository>(named("VehicleBBDD"))
+class OwnerRepositoryDataBase(
+    private val vehicleRepository: VehicleRepository
+): OwnerRepository {
 
     override fun findAll(): Iterable<Owner> {
         logger.debug { "OwnerRepositoryDataBase ->\tfindAll" }
         val owners = mutableListOf<Owner>()
         val sql = """SELECT * FROM tPropietario"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
                 owners.add(
@@ -37,9 +35,9 @@ class OwnerRepositoryDataBase: OwnerRepository, KoinComponent {
 
     override fun findById(id: String): Result<Owner, OwnerError> {
         logger.debug { "OwnerRepositoryDataBase ->\tfindById" }
-        var owner: Owner? = null
+        var owner:Owner? = null
         val sql = """SELECT * FROM tPropietario WHERE cDNI = ?"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             stm.setString(1, id)
             val result = stm.executeQuery()
             while (result.next()){

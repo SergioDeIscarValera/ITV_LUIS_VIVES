@@ -1,31 +1,29 @@
-package com.example.itv_citas.services.storage.report
+package services.storage.report
 
-import dto.ReportDto
-import errors.ReportError
-import mappers.toClass
-import mappers.toDto
-import models.Report
+
 import repositories.employee.EmployeeRepository
 import repositories.owner.OwnerRepository
 import repositories.vehicle.VehicleRepository
 import com.example.itv_citas.validators.FileAction
 import com.example.itv_citas.validators.validate
 import com.github.michaelbull.result.*
+import dto.ReportDto
+import errors.ReportError
+import mappers.toClass
+import mappers.toDto
+import models.Report
 import mu.KotlinLogging
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 import java.io.File
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
-import org.koin.core.qualifier.named
 
 private val logger = KotlinLogging.logger {}
 
 class ReportHtmlStorage(
-    val ownerRepository: OwnerRepository,
-    val employeeRepository: EmployeeRepository,
-    val vehicleRepository: VehicleRepository
+    private val ownerRepository: OwnerRepository,
+    private val employeeRepository: EmployeeRepository,
+    private val vehicleRepository: VehicleRepository
 ): ReportStorageService {
 
     private val fileName = File.separator + "reports.html"
@@ -38,6 +36,7 @@ class ReportHtmlStorage(
                 try {
                     val doc = Document.createShell("")
                     val table = doc.createElement("table")
+                    table.attr("border", "1")
                     table.append("<tr><th>ID</th><th>Favorable</th><th>Braking</th><th>Pollution</th><th>Inside</th><th>Lights</th><th>Employee ID</th><th>Employee Name</th><th>Vehicle Car Number</th><th>Brand</th><th>Model</th><th>Owner DNI</th><th>Owner Name</th><th>Owner Phone</th></tr>")
                     addRowPerReport(element, table)
                     doc.body().appendChild(table)

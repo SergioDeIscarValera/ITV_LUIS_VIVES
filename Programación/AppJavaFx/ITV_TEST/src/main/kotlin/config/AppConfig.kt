@@ -10,7 +10,7 @@ private val logger = KotlinLogging.logger {}
 
 private const val CONFIG_FILE_NAME = "/config.properties"
 
-class AppConfig {
+object AppConfig {
     private val localPath = System.getProperty("user.dir")
 
     val appData by lazy {

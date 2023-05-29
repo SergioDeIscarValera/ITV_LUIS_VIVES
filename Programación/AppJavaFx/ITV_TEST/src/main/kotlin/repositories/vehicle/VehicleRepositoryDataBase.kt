@@ -1,29 +1,25 @@
 package repositories.vehicle
 
-import errors.VehicleError
-import models.Vehicle
-import models.enums.TypeMotor
-import models.enums.TypeVehicle
-import services.database.DataBaseManager
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.get
+import errors.VehicleError
+import models.Vehicle
+import models.enums.TypeMotor
+import models.enums.TypeVehicle
 import mu.KotlinLogging
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import services.database.DataBaseManager.dataBase
 import java.sql.ResultSet
 
 private val logger = KotlinLogging.logger {}
 
-class VehicleRepositoryDataBase: VehicleRepository, KoinComponent {
-    private val dataBaseManager by inject<DataBaseManager>()
-
+class VehicleRepositoryDataBase: VehicleRepository {
     override fun findAll(): Iterable<Vehicle> {
         logger.debug { "VehicleRepositoryDataBase ->\tfindAll" }
         val vehicles = mutableListOf<Vehicle>()
         val sql = """SELECT * FROM tVehiculo"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
                 vehicles.add(
@@ -36,9 +32,9 @@ class VehicleRepositoryDataBase: VehicleRepository, KoinComponent {
 
     override fun findById(id: String): Result<Vehicle, VehicleError> {
         logger.debug { "VehicleRepositoryDataBase ->\tfindById" }
-        var vehicle: Vehicle? = null
+        var vehicle:Vehicle? = null
         val sql = """SELECT * FROM tVehiculo WHERE cMatricula = ?"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             stm.setString(1, id)
             val result = stm.executeQuery()
             while (result.next()){

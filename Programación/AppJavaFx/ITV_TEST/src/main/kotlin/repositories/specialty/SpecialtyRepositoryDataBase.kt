@@ -1,27 +1,25 @@
 package repositories.specialty
 
-import errors.SpecialtyError
-import models.Specialty
-import services.database.DataBaseManager
 import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.get
+import errors.SpecialtyError
+import models.Specialty
 import mu.KotlinLogging
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import services.database.DataBaseManager
+import services.database.DataBaseManager.dataBase
 import java.sql.ResultSet
 
 private val logger = KotlinLogging.logger {}
 
-class SpecialtyRepositoryDataBase: SpecialtyRepository, KoinComponent {
-    private val dataBaseManager by inject<DataBaseManager>()
+class SpecialtyRepositoryDataBase: SpecialtyRepository {
 
     override fun findAll(): Iterable<Specialty> {
         logger.debug { "SpecialtyRepositoryDataBase ->\tfindAll" }
         val specialties = mutableListOf<Specialty>()
         val sql = """SELECT * FROM tEspecialidad"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             val result = stm.executeQuery()
             while (result.next()){
                 specialties.add(
@@ -34,9 +32,9 @@ class SpecialtyRepositoryDataBase: SpecialtyRepository, KoinComponent {
 
     override fun findById(id: String): Result<Specialty, SpecialtyError> {
         logger.debug { "SpecialtyRepositoryDataBase ->\tfindById" }
-        var specialty: Specialty? = null
+        var specialty:Specialty? = null
         val sql = """SELECT * FROM tEspecialidad WHERE cNombre = ?"""
-        dataBaseManager.dataBase.prepareStatement(sql).use { stm ->
+        dataBase.prepareStatement(sql).use { stm ->
             stm.setString(1, id)
             val result = stm.executeQuery()
             while (result.next()){
