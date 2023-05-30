@@ -1,9 +1,9 @@
 # LENGUAJES DE MARCAS:
-- [ ] Diseñar el logo del taller que será su nueva imagen de marca. 
-- [ ] Asociarle una frase o eslogan. 
-- [ ] Crear un sitio web con dos páginas
-- [ ] Home: Incluye textos, enlaces, imágenes y todo aquello que la haga atractivaalos visitantes y muestre los servicios que el taller ofrece. Tendrá un enlacealapágina donde se mostrará el Formulario de contacto
-- [ ] Formulario de contacto: constará de:
+- [x] Diseñar el logo del taller que será su nueva imagen de marca. 
+- [x] Asociarle una frase o eslogan. 
+- [x] Crear un sitio web con dos páginas
+- [x] Home: Incluye textos, enlaces, imágenes y todo aquello que la haga atractivaalos visitantes y muestre los servicios que el taller ofrece. Tendrá un enlacealapágina donde se mostrará el Formulario de contacto
+- [x] Formulario de contacto: constará de:
     - Nombre
     - Apellidos
     - Correo electrónico

@@ -1,5 +1,5 @@
 # COMUN:
 - [x] Especificación de requisitos funcionales, no funcionales y de información. 
-- [ ] Planificación y gestión tareas y responsabilidades del proyecto usando Kanban. 
-- [ ] Análisis tecnológico indicando soluciones a usar argumentando y justificandosuuso. 
-- [ ] Estimación del precio del desarrollo.
+- [x] Planificación y gestión tareas y responsabilidades del proyecto usando Kanban. 
+- [x] Análisis tecnológico indicando soluciones a usar argumentando y justificandosuuso. 
+- [x] Estimación del precio del desarrollo.
