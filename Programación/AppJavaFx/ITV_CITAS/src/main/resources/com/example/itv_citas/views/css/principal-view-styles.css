@@ -1,0 +1,73 @@
+.background {
+    -fx-background-color: #b9f0e0;
+}
+
+.principal_image {
+    -fx-background-image: url('images/iniciar-sesion.png');
+    -fx-background-size: cover;
+}
+
+.fields {
+    -fx-background-color: transparent;
+    -fx-border-radius: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+    -fx-border-color:#f0b4b6;
+    -fx-border-width: 2;
+}
+
+.fields:hover{
+    -fx-border-color:#6cc3d590;
+    -fx-border-width: 2;
+}
+
+.fields:focused{
+    -fx-border-color:#ffce6790;
+    -fx-border-width: 2;
+}
+
+.check_image_pass {
+    -fx-background-image: url('images/check_pass.png');
+}
+
+.check_image_fail {
+    -fx-background-image: url('images/check_fail.png');
+}
+
+.labels {
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 14;
+}
+
+.password_button {
+    -fx-background-color: transparent;
+}
+
+.inicio_button {
+    -fx-background-color: transparent;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+    -fx-border-color: #56cc9d;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 14;
+}
+
+.inicio_button:hover {
+    -fx-background-color: #56cc9d;
+    -fx-background-radius: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 14;
+}
+
+.olvidar_button {
+    -fx-background-color: transparent;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}
+
+.olvidar_button:hover {
+    -fx-background-color: #ffe6af;
+    -fx-background-radius: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}

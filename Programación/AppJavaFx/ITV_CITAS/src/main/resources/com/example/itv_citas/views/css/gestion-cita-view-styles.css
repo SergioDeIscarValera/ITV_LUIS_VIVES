@@ -1,0 +1,34 @@
+.pane {
+    -fx-background-color: #d2fff2;
+}
+
+.labels {
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}
+
+.fields {
+    -fx-background-color: transparent;
+    -fx-border-color: #f0b4b6;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+}
+
+.fields:hover{
+    -fx-border-color:#6cc3d590;
+    -fx-border-width: 2;
+}
+
+.fields:focused{
+    -fx-border-color:#ffce6790;
+    -fx-border-width: 2;
+}
+
+.button {
+    -fx-background-color: transparent;
+}
+
+.button:hover {
+    -fx-background-color: #78ffd9;
+    -fx-background-radius: 10;
+}

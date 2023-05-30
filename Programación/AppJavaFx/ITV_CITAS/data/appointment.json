@@ -1,0 +1,17 @@
+[
+  {
+    "idEmployee": 3,
+    "carNumber": "9654JKL",
+    "date": "2023-06-06T14:45:51"
+  },
+  {
+    "idEmployee": 7,
+    "carNumber": "3254PLK",
+    "date": "2023-06-23T12:14:52"
+  },
+  {
+    "idEmployee": 11,
+    "carNumber": "2587BVC",
+    "date": "2023-06-01T08:49:04"
+  }
+]

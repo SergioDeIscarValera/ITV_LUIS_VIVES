@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="363.0" spacing="20.0" styleClass="background" stylesheets="@css/informe-view-styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.itv_citas.controllers.FormularioController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="69.0" prefWidth="500.0" spacing="50.0">
+         <children>
+            <Label text="FICHA DE INFORME" underline="true">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ficha_informe.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <GridPane prefHeight="295.0" prefWidth="500.0" styleClass="spinner-container">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.5999755859375" minWidth="10.0" prefWidth="105.4" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.00000762939453" minWidth="10.0" prefWidth="217.4" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label styleClass="labels" text="Vehículo" GridPane.rowIndex="1" />
+            <Label styleClass="labels" text="Propietario" GridPane.rowIndex="2" />
+            <Label styleClass="labels" text="Trabajador" GridPane.rowIndex="3" />
+            <Label styleClass="labels" text="Frenado" GridPane.rowIndex="4" />
+            <Label styleClass="labels" text="Contaminación" GridPane.rowIndex="5" />
+            <Label styleClass="labels" text="Interior" GridPane.rowIndex="6" />
+            <Label styleClass="labels" text="Luces" GridPane.rowIndex="7" />
+            <Label styleClass="labels" text="APTO" GridPane.rowIndex="8" />
+            <TextField fx:id="textVehiculo" editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textPropietario" editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="textTrabajador" editable="false" styleClass="fields" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label styleClass="labels" text="Fecha" />
+            <TextField fx:id="textFecha" editable="false" styleClass="fields" GridPane.columnIndex="1" />
+            <CheckBox fx:id="checkBoxInterior" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkBoxLuces" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox fx:id="checkBoxApto" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <Spinner fx:id="spinnerFrenado" prefHeight="26.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Spinner fx:id="spinnerContaminacion" prefHeight="26.0" prefWidth="253.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </GridPane>
+      <Button fx:id="buttonGuardar" mnemonicParsing="false">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/guardar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</VBox>
