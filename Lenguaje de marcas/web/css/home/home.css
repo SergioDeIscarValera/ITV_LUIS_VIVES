@@ -1,0 +1,30 @@
+.container .imgContainer{
+    width: 70%;
+    margin-right: 2rem;
+}
+
+.logo{
+    margin: 4rem 0;
+    width: 35rem;
+    height: auto;
+}
+
+.dupla{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    width: 70%;
+    text-align: justify;
+}
+
+.dupla h2{
+    margin-bottom: 2rem;
+}
+
+.dupla p{
+    text-align: center;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,67 @@
+.background {
+    -fx-background-color: #b9f0e0;
+}
+
+.labels {
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}
+
+.fields {
+    -fx-background-color: #00000000;
+    -fx-border-radius: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+    -fx-border-color:#f0b4b6;
+    -fx-border-width: 2;
+}
+
+.fields:hover{
+    -fx-border-color:#6cc3d590;
+    -fx-border-width: 2;
+}
+
+.fields:focused{
+    -fx-border-color:#ffce6790;
+    -fx-border-width: 2;
+}
+
+.check_box {
+    -fx-background-color: #00000000;
+    -fx-border-radius: 20;
+    -fx-border-color:#f0b4b6;
+    -fx-border-width: 2;
+}
+
+.button {
+    -fx-background-color: #00000000;
+}
+
+.button:hover {
+    -fx-background-color: #78ffd9;
+    -fx-background-radius: 10;
+}
+
+.spinner{
+    -fx-base:rgba(185, 240, 224, 255);
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+	-fx-background-color: #f0b4b6;
+	-fx-background-radius: 0;
+}
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+	-fx-background-color: #78ffd9;
+}
+.spinner .increment-arrow-button:hover:pressed,
+.spinner .decrement-arrow-button:hover:pressed,
+.spinner .increment-arrow-button:pressed,
+.spinner .decrement-arrow-button:pressed {
+	-fx-background-color: transparent;
+}
+.spinner .increment-arrow-button .increment-arrow,
+.spinner .decrement-arrow-button .decrement-arrow {
+	-fx-background-color: #343a40;
+}

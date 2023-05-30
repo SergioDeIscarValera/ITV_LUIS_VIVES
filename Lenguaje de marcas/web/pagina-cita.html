@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/general/general.css">
+    <link rel="stylesheet" href="css/botonesFlotantes/botones-flotantes.css">
+    <link rel="stylesheet" href="css/nav/nav.css">
+    <link rel="stylesheet" href="css/footer/footer.css">
+
+    <link rel="stylesheet" href="css/cita/cita.css">
+
+    <link id="general" rel="stylesheet" href="css/general/general-light.css">
+    <link id="cita" rel="stylesheet" href="css/cita/cita-light.css">
+    <link id="nav" rel="stylesheet" href="css/nav/nav-light.css">
+
+
+    <title>Reserve su Cita</title>
+    <link rel="icon" type="image/png" href="img/logoClaro.png">
+
+
+    <script src="js/formulario.js"></script>
+    <script src="js/changeBackground.js"></script>
+    <script>
+        let flag = false;
+        function cambiarModo() {
+            let newStyle = "";
+            
+            if(flag){
+                newStyle = "light";
+            }else{
+                newStyle = "dark";
+            }
+
+            setHref("general", newStyle);
+            setHref("cita", newStyle);
+            setHref("nav", newStyle);
+
+            flag = !flag;
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header_logo">
+                <img id="logoIzquierda" src="img/logoSinEslogan.png">
+            </div>
+            <ul>
+                <li><a href="pagina_principal.html">Home</a></li>
+                <li><a href="pagina-info.html">Info</a></li>
+                <li><a href="#">Cita</a></li>
+            </ul>
+            <div class="header_color">
+                <button onclick="cambiarModo()">
+                    <img class="color_button botonLuna" src="img/luna.png">
+                    <img class="color_button botonSol" src="img/sol.png">
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="title_container">
+            <h1 style="color: #3a5c52;">Cita Formulario:</h1>
+            <img src="img/programador.png" class="imagen_usuario">
+        </div>
+        <form action="javascript:checkForm()">
+            <div class="row">
+                <label for="nombre">Nombre</label>
+                <input autofocus type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="row">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos">
+            </div>
+            <div class="row">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+            <div class="row">
+                <label for="telefono">Teléfono de contacto</label>
+                <input type="tel" id="telefono" name="telefono">
+            </div>
+            <div class="row">
+                <label for="matricula">Matrícula del vehículo</label>
+                <input type="text" id="matricula" name="matricula" placeholder="1234ABC" required>
+            </div>
+            <div class="row">
+                <label for="tipoVehiculo">Tipo de vehículo</label>
+                <select id="tipoVehiculo" name="tipoVehiculo">
+                    <option value="TURISMO">Turismo</option>
+                    <option value="FURGONETA">Furgoneta</option>
+                    <option value="CAMION">Camión</option>
+                    <option value="MOTOCICLETA">Motocicleta</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="fechaMatriculacion">Fecha de matriculación</label>
+                <input type="date" id="fechaMatriculacion" name="fechaMatriculacion" required>
+            </div>
+            <div class="row_buttons">
+                <img class="codigo_barras" src="img/codigo-de-barras.png">
+                <button type="reset" id="enviar_button" class="reset_button" onclick="">Borrar</button>
+                <button type="submit" id="enviar_button" class="enviar_button" onclick="">Enviar datos</button>
+            </div>
+        </form>
+
+        <div class="floating-buttons">
+            <a href="#">
+                <img src="img/instagram.png">
+            </a>
+            <a href="#">
+                <img src="img/twitter.png">
+            </a>
+            <a href="#">
+                <img src="img/whatsapp.png">
+            </a>
+            <a href="#">
+                <img src="img/facebook.png">
+            </a>
+            <a href="#">
+                <img src="img/tiktok.png">
+            </a>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer_rrss">
+            <ul>
+                <li><a href="#"><img src="img/instagram.png"></a></li>
+                <li><a href="#"><img src="img/twitter.png"></a></li>
+                <li><a href="#"><img src="img/whatsapp.png"></a></li>
+                <li><a href="#"><img src="img/facebook.png"></a></li>
+                <li><a href="#"><img src="img/tiktok.png"></a></li>
+            </ul>
+        </div>
+        <div class="footer_contacto">
+            <h3>Contacto:</h3>
+            <div class="footer_contacto_contenido">
+                <div>
+                    <label>Dirección:</label>
+                    <p>Camiño Daniel, 047, 3º 6º</p>
+                </div>
+                <div>
+                    <label>Teléfono:</label>
+                    <p>699999999</p>
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <p>itvinspecionamostuchoche@example.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-legal">
+            <p>Todos los derechos reservados &copy; 2023</p>
+        </div>
+    </footer>
+</body>
+</html>

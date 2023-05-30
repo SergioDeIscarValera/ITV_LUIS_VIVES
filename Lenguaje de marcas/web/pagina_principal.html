@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/general/general.css">
+    <link rel="stylesheet" href="css/botonesFlotantes/botones-flotantes.css">
+    <link rel="stylesheet" href="css/nav/nav.css">
+    <link rel="stylesheet" href="css/footer/footer.css">
+
+    <link rel="stylesheet" href="css/home/home.css">
+
+    <link id="general" rel="stylesheet" href="css/general/general-light.css">
+    <link id="home" rel="stylesheet" href="css/home/home-light.css">
+    <link id="nav" rel="stylesheet" href="css/nav/nav-light.css">
+
+    <title>Bienvenido</title>
+    <link rel="icon" type="image/png" href="img/logoClaro.png">
+
+    <script src="js/changeBackground.js"></script>
+    <script>
+        let flag = false;
+        function cambiarModo() {
+            let newStyle = "";
+            
+            if(flag){
+                newStyle = "light";
+            }else{
+                newStyle = "dark";
+            }
+
+            setHref("general", newStyle);
+            setHref("home", newStyle);
+            setHref("nav", newStyle);
+
+            flag = !flag;
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header_logo">
+                <img id="logoIzquierda" src="img/logoSinEslogan.png">
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="pagina-info.html">Info</a></li>
+                <li><a href="pagina-cita.html">Cita</a></li>
+            </ul>
+            <div class="header_color">
+                <button onclick="cambiarModo()">
+                    <img class="color_button botonLuna" src="img/luna.png">
+                    <img class="color_button botonSol" src="img/sol.png">
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <div class="container">
+            <img class="logo logoClaro" src="img/logoClaro.png">
+            <img class="logo logoOscuro" src="img/logoOscuro.png">
+            <h1>¿Quienes somos?</h1>
+            <div class="dupla">
+                <p>
+                    ¡Bienvenidos a Inspeccionamos tu Coche S.A.!
+                    Somos tu empresa de Inspección Técnica de Vehículos de confianza. Nos dedicamos a garantizar 
+                    la seguridad y el buen funcionamiento de tu vehículo, brindándote un servicio completo, profesional y rápido. 
+                    Nuestro compromiso es asegurar que tu coche cumpla con todos los requisitos legales y esté en condiciones óptimas para la circulación.
+                </p>
+            </div>
+
+            <img class="imgContainer" src="img/vehiculos1.png">
+
+            <h1>¿Por qué elegir Arreglamos tu Coche S.A.?</h1>
+            
+            <div class="dupla">
+                <h2 >1. Experiencia y conocimientos</h2>
+                <p>
+                    Contamos con un equipo de técnicos altamente capacitados y con amplia experiencia en nuestro sector. 
+                    Conocemos a la perfección los requisitos y las normativas vigentes actuales, y estamos preparados para 
+                    realizar inspecciones exhaustivas y precisas en cada parte de su vehículo.
+                </p>
+            </div>
+            <div class="dupla">
+                <h2>2. Tecnología de vanguardia</h2>
+                <p>
+                    En Arreglamos tu Coche S.A., invertimos en equipos y tecnología de última generación para garantizar la 
+                    máxima precisión en nuestras inspecciones. Utilizamos herramientas avanzadas que nos permiten detectar 
+                    cualquier irregularidad o avería en tu coche, asegurando así su correcto funcionamiento y tu 
+                    seguridad en la carretera.
+                </p>
+            </div>
+
+            <div class="dupla">
+                <h2>3. Servicio personalizado</h2>
+                <p>
+                    Entendemos que cada vehículo es único y tiene sus propias necesidades. Por eso, en Arreglamos tu Coche S.A., 
+                    nos adaptamos a tus requerimientos específicos, ofreciéndote un servicio personalizado y a medida. 
+                    Nuestros expertos evaluarán tu vehículo de manera individualizada, brindándote recomendaciones y soluciones 
+                    adecuadas a su estado y características.
+                </p>
+            </div>
+
+            <div class="dupla">
+                <h2>4. Eficiencia y rapidez</h2>
+                <p>
+                    Valoramos tu tiempo y nos esforzamos por ofrecerte un servicio eficiente y ágil. En Arreglamos tu Coche S.A., 
+                    podrás reservar tu cita de forma rápida y sencilla, evitando largas esperas innecesarias. Además, nos 
+                    comprometemos a realizar las inspecciones en tiempo récord, sin descuidar la calidad y precisión en cada paso 
+                    del proceso.
+                </p>
+            </div>
+
+            <div class="dupla">
+                <h2>5. Transparencia y confianza</h2> 
+                <p>
+                    En Arreglamos tu Coche S.A., nos enorgullece nuestra honestidad y transparencia. Te ofrecemos un 
+                    servicio completamente confiable y te mantenemos informado en todo momento sobre el estado de tu vehículo. 
+                    Nuestro objetivo es brindarte la tranquilidad de saber que estás dejando tu coche en manos de profesionales 
+                    comprometidos con tu seguridad y bienestar.
+                </p>
+            </div>
+
+            <img class="imgContainer" src="img/vehiculos2.png">
+
+            <div class="dupla">
+                <h1>Conclusión</h1>
+                <p>
+                    Confía en Arreglamos tu Coche S.A. para garantizar la seguridad y el correcto 
+                    funcionamiento de tu vehículo. Reserva tu cita hoy mismo y experimenta nuestro servicio de calidad. 
+                    Estamos aquí para cuidar de tu coche como si fuera nuestro propio vehículo.
+                </p>
+            </div>
+        </div>
+
+        <!-- Botones flotantes -->
+        <div class="floating-buttons">
+            <a href="#">
+                <img src="img/instagram.png">
+            </a>
+            <a href="#">
+                <img src="img/twitter.png">
+            </a>
+            <a href="#">
+                <img src="img/whatsapp.png">
+            </a>
+            <a href="#">
+                <img src="img/facebook.png">
+            </a>
+            <a href="#">
+                <img src="img/tiktok.png">
+            </a>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer_rrss">
+            <ul>
+                <li><a href="#"><img src="img/instagram.png"></a></li>
+                <li><a href="#"><img src="img/twitter.png"></a></li>
+                <li><a href="#"><img src="img/whatsapp.png"></a></li>
+                <li><a href="#"><img src="img/facebook.png"></a></li>
+                <li><a href="#"><img src="img/tiktok.png"></a></li>
+            </ul>
+        </div>
+        <div class="footer_contacto">
+            <h3>Contacto:</h3>
+            <div class="footer_contacto_contenido">
+                <div>
+                    <label>Dirección:</label>
+                    <p>Camiño Daniel, 047, 3º 6º</p>
+                </div>
+                <div>
+                    <label>Teléfono:</label>
+                    <p>699999999</p>
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <p>itvinspecionamostuchoche@example.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-legal">
+            <p>Todos los derechos reservados &copy; 2023</p>
+        </div>
+    </footer>
+</body>
+</html>

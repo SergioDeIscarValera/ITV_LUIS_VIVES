@@ -1,0 +1,60 @@
+table{
+    border-collapse: collapse;
+    width: 50rem;
+    height: 20rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+th, td{
+    padding: 1em;
+    background: var(--color-fondo);
+    border-bottom: 2px solid var(--color-fondo); 
+}
+
+table th{
+    background-color:var(--color-fondo-secondary) ;
+    font-size: 2rem;
+    color: var(--light);
+    text-align: center;
+}
+
+table td{
+    background-color:var(--info) ;
+    font-size: 2rem;
+    color: var(--dark);
+    text-align: center;
+}
+
+h1{
+    margin: 5rem 0 2rem 0;
+}
+
+.container img{
+    margin-bottom: 2rem;
+    border-radius: 4rem;
+}
+
+.imgAsist{
+    width: 30rem;
+    height: auto;
+}
+
+.dupla{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.dupla h2{
+    margin-bottom: 2rem;
+}
+
+.dupla p{
+    text-align: center;
+    font-size: 1.2rem;
+}

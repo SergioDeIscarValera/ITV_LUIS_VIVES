@@ -1,0 +1,111 @@
+.menu_bar {
+    -fx-background-color: #abffd4;
+}
+
+.citas_pane {
+    -fx-background-color: #d2fff2;
+}
+
+.fields {
+    -fx-background-color: #00000000;
+    -fx-border-radius: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+    -fx-border-color:#f0b4b6;
+    -fx-border-width: 2;
+}
+
+.fields:hover{
+    -fx-border-color:#6cc3d590;
+    -fx-border-width: 2;
+}
+
+.fields:focused{
+    -fx-border-color:#ffce6790;
+    -fx-border-width: 2;
+}
+
+.buttons {
+    -fx-background-color: #00000000;
+}
+
+.buttons:hover {
+    -fx-background-color: #78ffd9;
+    -fx-background-radius: 10;
+}
+
+.coche_pane {
+    -fx-background-color: #ffd6d7;
+}
+
+.matricula_dni_field {
+    -fx-border-insets: -5;
+    -fx-border-radius: 5;
+    -fx-border-color: black;
+}
+
+.datos_fields {
+    -fx-background-color: #00000000;
+    -fx-border-radius: 5;
+    -fx-border-color: black;
+}
+
+.propietario_pane {
+    -fx-background-color: #ffebc0;
+}
+
+.labels {
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 13;
+}
+
+.table-button {
+	-fx-background-color: #ff7851;
+	-fx-cursor: hand;
+}
+.table-button:hover{
+	-fx-background-color: transparent;
+}
+.table-view {
+	-fx-border-color: transparent;
+	-fx-background-color: transparent;
+}
+.table-view .column-header-background,
+.table-view .column-header-background .filler,
+.table-view .corner {
+	-fx-background-color: transparent;
+}
+.table-view .column-header {
+	-fx-background-color: transparent;
+}
+.table-view .column-header .label{
+	-fx-font-weight: bold; 
+	-fx-alignment: center-left;
+}
+.table-row-cell:filled {
+	-fx-background-color: transparent;
+}
+.table-row-cell:empty {
+	-fx-background-color: transparent;
+}
+.table-row-cell:filled:hover {
+	-fx-background-color: #6cc3d580;
+}
+.table-row-cell:filled:selected {
+  	-fx-background-color: #ffebc0;
+ 	-fx-background-insets: 0.0;
+	-fx-background-radius: 0.0;
+    -fx-border-color: transparent;
+}
+.table-row-cell:filled:selected .table-cell {
+	-fx-text-fill: black;
+}
+.table-view .cell:filled{
+	-fx-cell-size: 30;
+	-fx-alignment: center-left;
+}
+
+.table-view .placeholder .label {
+	-fx-text-fill: #e84112;
+	-fx-padding:20px;
+}
